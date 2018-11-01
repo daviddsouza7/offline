@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Meta, title, CSS, favicons, etc. -->
+<link rel="SHORTCUT ICON"
+	href="assets/images/favicon.png">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>CoBakers - Dashboard</title>
+<!-- Bootstrap -->
+
+<script src="assets/jquery/jquery-2.2.3.min.js"></script>
+
+
+<!-- <script
+	src="assets/datatables/js/dataTables.bootstrap.min.js"></script> -->
+
+<link
+	href="assets/vendors/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="assets/vendors/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet">
+
+<link
+	href="assets/vendors/nprogress/nprogress.css"
+	rel="stylesheet">
+
+<link
+	href="assets/vendors/iCheck/skins/flat/green.css"
+	rel="stylesheet">
+<link
+	href="assets/vendors/google-code-prettify/bin/prettify.min.css"
+	rel="stylesheet">
+<link
+	href="assets/vendors/select2/dist/css/select2.min.css"
+	rel="stylesheet">
+<link
+	href="assets/vendors/switchery/dist/switchery.min.css"
+	rel="stylesheet">
+<link
+	href="assets/vendors/starrr/dist/starrr.css"
+	rel="stylesheet">
+
+
+
+
+<!-- bootstrap-progressbar -->
+ <link
+	href="assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"
+	rel="stylesheet">
+
+<link
+	href="assets/vendors/jqvmap/dist/jqvmap.min.css"
+	rel="stylesheet" />
+<link
+	href="assets/vendors/bootstrap-daterangepicker/daterangepicker.css"
+	rel="stylesheet">
+
+<link href="assets/build/css/custom.css"
+	rel="stylesheet">
+<link href="assets/css/loader.css"
+	rel="stylesheet"> 
+<!-- <link href="assets/css/coreco_design_ui.css"
+	rel="stylesheet">
+<script
+	src="assets/js/custom_form_validation.js"></script> -->
+ 
+    <link href="assets/theme.css" rel="stylesheet" media="all">
+
+
+<style>
+.bootstrap-datetimepicker-widget table td.active,
+	.bootstrap-datetimepicker-widget table td.active:hover {
+	background-color: #337ab7;
+	color: #fff;
+}
+</style>
+
+<style>
+/******************************
+ * FLEXBOX STYLES
+ ***************************** */
+.dice {
+  display: flex;
+  /*margin-top: 4rem;*/
+  justify-content: center;
+  position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: .75;
+    z-index: 9999999;
+    padding-top: 20%;
+}
+
+.face {
+  display: flex;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 0.7rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  opacity: 0;
+}
+.face .dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: #F44336;
+  border-radius: 50%;
+}
+.face:nth-child(1) {
+  border: 2px solid #F44336;
+  -webkit-animation: waves 5s linear infinite;
+          animation: waves 5s linear infinite;
+}
+.face:nth-child(1) .dot {
+  background: #F44336;
+}
+.face:nth-child(2) {
+  border: 2px solid #E91E63;
+  -webkit-animation: waves 5s 0.2s linear infinite;
+          animation: waves 5s 0.2s linear infinite;
+}
+.face:nth-child(2) .dot {
+  background: #E91E63;
+}
+.face:nth-child(3) {
+  border: 2px solid #9C27B0;
+  -webkit-animation: waves 5s 0.4s linear infinite;
+          animation: waves 5s 0.4s linear infinite;
+}
+.face:nth-child(3) .dot {
+  background: #9C27B0;
+}
+.face:nth-child(4) {
+  border: 2px solid #673AB7;
+  -webkit-animation: waves 5s 0.6s linear infinite;
+          animation: waves 5s 0.6s linear infinite;
+}
+.face:nth-child(4) .dot {
+  background: #673AB7;
+}
+.face:nth-child(5) {
+  border: 2px solid #3F51B5;
+  -webkit-animation: waves 5s 0.8s linear infinite;
+          animation: waves 5s 0.8s linear infinite;
+}
+.face:nth-child(5) .dot {
+  background: #3F51B5;
+}
+.face:nth-child(6) {
+  border: 2px solid #2196F3;
+  -webkit-animation: waves 5s 1s linear infinite;
+          animation: waves 5s 1s linear infinite;
+}
+.face:nth-child(6) .dot {
+  background: #2196F3;
+}
+
+.first-face {
+  justify-content: center;
+  align-items: center;
+}
+
+.second-face {
+  justify-content: space-between;
+}
+.second-face .dot:last-of-type {
+  align-self: flex-end;
+}
+
+.third-face {
+  justify-content: space-between;
+}
+.third-face .dot:nth-child(2) {
+  align-self: center;
+}
+.third-face .dot:last-of-type {
+  align-self: flex-end;
+}
+
+.fourth-face {
+  justify-content: space-between;
+}
+.fourth-face .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fifth-face {
+  justify-content: space-between;
+}
+.fifth-face .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.fifth-face .column:nth-child(2) {
+  justify-content: center;
+}
+
+.sixth-face {
+  justify-content: space-between;
+}
+.sixth-face .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/****************************************************** */
+@-webkit-keyframes waves {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 0;
+  }
+  4% {
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
+    opacity: 1;
+  }
+  8% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+}
+@keyframes waves {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 0;
+  }
+  4% {
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
+    opacity: 1;
+  }
+  8% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+}
+
+
+/*********************** start code for online offline style ****************************/
+
+.led-box {
+  height: 15px;
+  /* width: 25%; */
+  margin: 10px 10px 10px 2px;
+  float: right;
+  display: none;
+}
+
+.led-box p {
+  font-size: 12px;
+  text-align: center;
+  margin: 1em;
+}
+
+.led-red {
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  background-color: #808080;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #999 0 -1px 9px, #fff 0 2px 12px;;
+  -webkit-animation: blinkRed 0.5s infinite;
+  -moz-animation: blinkRed 0.5s infinite;
+  -ms-animation: blinkRed 0.5s infinite;
+  -o-animation: blinkRed 0.5s infinite;
+  animation: blinkRed 0.5s infinite;
+}
+
+.led-green {
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  background-color: #0973f7;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #1aa5bb26 0 2px 12px;
+}
+
+
+/*********************** End code for online offline style ****************************/
+</style>
+
+
+
+
+</head>
+
+<body class="nav-sm">
+	<div class="container body">
+		<div class="main_container">
+
+
+			<!-- top navigation -->
+			
+			<div class="top_nav" style="margin-left: 0px;">
+			
+				<div class="nav_menu">
+					<nav>
+							<!-- <a href="pos_dashboard.html" data-toggle="tooltip" data-placement="bottom" title="Dashboard" style="margin: 6px 1%;"><img src="assets/images/Dashboard.png" class="img" width="40"></a>
+							<a href="POS_New_Order.html" data-toggle="tooltip" data-placement="bottom" title="Generate Sales Order" style="margin: 6px 1%;"><img src="assets/images/New_Order2.png" class="img" width="40"></a>
+							<a href="POS_Order_Listing.html" data-toggle="tooltip" data-placement="bottom" title="Order Listing" style="margin: 6px 1%;"><img src="assets/images/listing.png" class="img" width="40"></a>
+							 -->
+							<div class="led-box online_led" data-toggle="tooltip" data-placement="bottom" title="Online">
+								<div class="led-green"></div>
+							</div>
+								
+							<div class="led-box offline_led" data-toggle="tooltip" data-placement="bottom" title="Offline">
+								<div class="led-red"></div>
+							</div>
+						<div class="dice" style="display:none">
+  
+  <div class="face first-face">
+    <div class="dot"></div>  
+  </div>
+  
+  <div class="face second-face">
+    <div class="dot"></div>  
+    <div class="dot"></div>  
+  </div>
+  
+  <div class="face third-face">
+    <div class="dot"></div>  
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  
+  <div class="face fourth-face">
+    <div class="column">
+      <div class="dot"></div>  
+      <div class="dot"></div>  
+    </div>
+    <div class="column">
+      <div class="dot"></div>  
+      <div class="dot"></div>  
+    </div>    
+  </div>
+  
+  <div class="face fifth-face">
+    <div class="column">
+      <div class="dot"></div>  
+      <div class="dot"></div>  
+    </div>
+    <div class="column">
+      <div class="dot"></div>
+    </div>
+    <div class="column">
+      <div class="dot"></div>  
+      <div class="dot"></div>  
+    </div>    
+  </div>
+  
+  <div class="face sixth-face">
+    <div class="column">
+      <div class="dot"></div>  
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="column">
+      <div class="dot"></div>  
+      <div class="dot"></div>  
+      <div class="dot"></div>
+    </div>    
+  </div>
+  
+</div>
+
+						<a style="float: left; margin: 0; padding-top: 16px;"><span
+							class="h4"><b>
+									
+							</b></span><span class="font-thin"><b></b> <span class="h4">
+																</span></a>
+						
+						<ul class="nav navbar-nav pull-right">
+	
+							<li class=""><a href="javascript:;"
+								class="user-profile dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false"> <img
+									src="assets/images/img.png" alt="">
+								Operator <span class=" fa fa-angle-down"></span>
+							</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right">
+									<!--<li><a
+										href="<?php echo base_url().'Reset_password/unit/'; ?>">Reset
+											Password</a></li>
+									-->
+									<li><a href="#" id="delete_db">Delete Database</a></li>
+
+									<li><a href="#" id="log_out">Log
+											Out</a></li>
+								</ul></li>
+
+							
+						</ul>
+						
+					</nav>
+				</div>
+			</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" style="margin-left: 0px;" role="main">
+
+
+	<!--<div class="x_title">
+		<div class="col-md-6">
+			<h4>Dashboard</h4>
+		</div>
+		<div class="clearfix"></div>
+	</div>-->
+	
+	<div class="container">
+		<div class="row">
+
+				<div class='col-lg-12'>
+						<div class="row" style="/*margin-top: 21px;*/">
+							
+							<div class="col-sm-3 col-lg-3">
+								<div class="overview-item overview-item--c3">
+									<div class="overview__inner">
+										<div class="overview-box clearfix">
+											<!--<div class="icon">
+												<i class="zmdi zmdi-calendar-note"></i>
+											</div>-->
+											<div class="text">
+												<h2 id="offline_order_count"></h2>
+												<span>Total Offline Sale Orders</span>
+											</div>
+										</div>
+										<!-- <div class="overview-chart">
+											<canvas id="widgetChart3"></canvas>
+										</div> -->
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 col-lg-3">
+								<div class="overview-item overview-item--c4">
+									<div class="overview__inner">
+										<div class="overview-box clearfix">
+											<!--<div class="icon">
+												<i class="zmdi zmdi-money"></i>
+											</div>-->
+											<div class="text">
+												<h2 id = "total_sale_order_amount"> </h2>
+												<span>Total Sales Amount</span>
+											</div>
+										</div>
+										<!-- <div class="overview-chart">
+											<canvas id="widgetChart4"></canvas>
+										</div> -->
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 col-lg-3">
+								<div class="overview-item overview-item--c1">
+									<div class="overview__inner">
+										<div class="overview-box clearfix">
+											<!--<div class="icon">
+												<i class="zmdi zmdi-account-o"></i>
+											</div>-->
+											<div class="text">
+												<h2 id="local_pull_date"></h2>
+												<span>Local Product Pull</span>
+											</div>
+										</div>
+										<!-- <div class="overview-chart">
+											<canvas id="widgetChart1"></canvas>
+										</div> -->
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 col-lg-3">
+								<div class="overview-item overview-item--c2">
+									<div class="overview__inner">
+										<div class="overview-box clearfix">
+											<!--<div class="icon">
+												<i class="zmdi zmdi-shopping-cart"></i>
+											</div>-->
+											<div class="text">
+												<h2 id="local_push_date"></h2>
+												<span>Orders Pushed On Server</span>
+											</div>
+										</div>
+										<!-- <div class="overview-chart">
+                                            <canvas id="widgetChart2"></canvas>
+                                        </div> -->
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+
+
+
+
+
+					<div class="col-md-12">
+							<div class="card card-plain" style="margin: 0;" id="show_units">
+								<div class="card-content" id="">
+									<div class='col-sm-3 col-lg-3'>
+										<div class='panel panel-default text-center' style='box-shadow:none;'>
+											<a href="POS_New_Order.html">
+												<div class='panel-body'>
+													<div class='clearfix text-center'>
+														<div class='inline'>
+															<div class='m-t m-b-xs'>
+																<img src=assets/images/New_Order1.png width='105' alt='...' >
+																<br>
+																<h4><b><option style='white-space: pre-line;'>New Order</option></b></h4>
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+									
+									<div class='col-sm-3 col-lg-3'>
+										<div class='panel panel-default text-center' style='box-shadow:none;'>
+											<a href="POS_Order_Listing.html" >
+												<div class='panel-body'>
+													<div class='clearfix text-center'>
+														<div class='inline'>
+															<div class='m-t m-b-xs'>
+																<img src='assets/images/Order_listing.png' width='105' alt='...' >
+																<br>
+																	<h4><b><option style='white-space: pre-line;'>Order Listing</option></b></h4>
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+
+									<div id="pull_error" style ="color:red"></div>
+									<div class='col-lg-3 col-lg-offset-3' style="border: solid 1px #ddd; padding-top: 2%;    background-image: -webkit-linear-gradient(90deg, #ff7431 0%, #dc4e68 100%);width: 299px;border-radius: 10%;margin-left: 23%;">
+											<button id="pull_details" class="col-md-12 col-sm-12 col-xs-12" style="display: block;"> 
+										<div class='col-lg-12'>
+											<div class='panel panel-default text-center' style='box-shadow:none;border-radius: 10px;'>
+													
+														<div class='panel-body'>
+															<div class='clearfix text-center'>
+																<div class='inline'>
+																	<div class='m-t m-b-xs'>
+																		<img src='assets/images/download.png' width='40' alt='...' >
+																		<br>
+																			<h4><b><option style='white-space: pre-line;'>Pull Data</option></b></h4>
+																	</div>
+																</div>
+															</div>
+														</div>
+													
+												</div>
+											</div>
+										</button>
+										<button id="push_details" class="col-md-12 col-sm-12 col-xs-12" style="display: block;">
+										<div class='col-lg-12'>
+											<div class='panel panel-default text-center' style='box-shadow:none;border-radius: 10px;'>
+												
+													<div class='panel-body'>
+														<div class='clearfix text-center'>
+															<div class='inline'>
+																<div class='m-t m-b-xs'>
+																	<img src='assets/images/upload.png' width='40' alt='...' >
+																	<br>
+																		<h4><b><option style='white-space: pre-line;'>Push Data</option></b></h4>
+																</div>
+															</div>
+														</div>
+													</div>
+												
+											</div>
+										</div>
+									</button>
+			
+										
+									</div>
+						
+
+
+
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="No_internet_connection_Modal" tabindex="-1"
+role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+data-keyboard="false" data-backdrop="static">
+<div class="modal-dialog modal-md">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close close_modal"
+				data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel">Message</h4>
+		</div>
+		<div class="modal-body">
+			<form data-parsley-validate class="form-horizontal form-label-left"
+				name="formdata2" id="formdata2">
+				<div class="x_content">
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+						<label>Sorry..!! No Internet Connection.!</label>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+				<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+						style="text-align: right">
+						<button type="button" class="btn btn-primary close_modal"
+							data-dismiss="modal">Ok</button>
+				</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="Successfully_Products_Added_Modal" tabindex="-1"
+role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+data-keyboard="false" data-backdrop="static">
+<div class="modal-dialog modal-md">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close close_modal"
+				data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel">Message</h4>
+		</div>
+		<div class="modal-body">
+			<form data-parsley-validate class="form-horizontal form-label-left"
+				name="formdata2" id="formdata2">
+				<div class="x_content">
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						<label><span id="products_count"></span> Products are added successfully.</label>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+				<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+						style="text-align: right">
+						<button type="button" class="btn btn-primary close_modal"
+							data-dismiss="modal">Ok</button>
+				</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="modal fade" id="Successfully_Sync_up_order_Modal" tabindex="-1"
+role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+data-keyboard="false" data-backdrop="static">
+<div class="modal-dialog modal-md">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close sync_up_close_modal"
+				data-dismiss="modal" aria-hidden="true" disabled>&times;</button>
+			<h4 class="modal-title" id="myModalLabel">Message</h4>
+		</div>
+		<div class="modal-body">
+			<form data-parsley-validate class="form-horizontal form-label-left"
+				name="formdata2" id="formdata2">
+				<div class="x_content">
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						<label><span id="Orders_sync_up_count"></span> Orders added on server successfully.</label>
+						<!-- <label>Please still wait for record removing..</label> -->
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+				<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+						style="text-align: right">
+						<button type="button" class="btn btn-primary sync_up_close_modal"
+							data-dismiss="modal" disabled>Ok</button>
+				</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="modal fade" id="No_Orders_For_Sync_up_Modal" tabindex="-1"
+role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+data-keyboard="false" data-backdrop="static">
+<div class="modal-dialog modal-md">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close close_modal"
+				data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel">Message</h4>
+		</div>
+		<div class="modal-body">
+			<form data-parsley-validate class="form-horizontal form-label-left"
+				name="formdata2" id="formdata2">
+				<div class="x_content">
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						<label>No any orders available for sync up.</label>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+				<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+						style="text-align: right">
+						<button type="button" class="btn btn-primary close_modal"
+							data-dismiss="modal">Ok</button>
+				</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="delete_db_modal"
+tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+data-backdrop="static" data-keyboard="false" aria-hidden="true">
+<div class="modal-dialog modal-md">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel">Delete Database
+				Confirmation</h4>
+		</div>
+		<div class="modal-body">
+			<form data-parsley-validate class="form-horizontal form-label-left"
+				name="formdata" id="formdata">
+				<div class="x_content">
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						<label style="font-size: 15px;">Database will be Deleted. Do you want to proceed?</label>
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+						style="text-align: right">
+						<button type="button" class="btn btn-primary"
+							id="delete_database">Yes</button>
+						<button type="button" class="btn btn-primary"
+							data-dismiss="modal">No</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>
+</div>
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+</div>
+</div>
+
+
+		</div>
+		<!-- /page content -->
+
+		<!-- footer content -->
+		<footer style="margin-left: 0px;">
+			<div class="pull-right">
+				&copy; 2017-18 Powered by <a href="https://corecotechnologies.com"
+					target="_blank">CoReCo Technologies</a>
+			</div>
+			<div class="clearfix"></div>
+		</footer>
+		<!-- /footer content -->
+	</div>
+	</div>
+
+	<!-- jQuery 
+<script src="<?php echo base_url();?>assets/vendors/jquery/dist/jquery.min.js"></script> -->
+	<!-- Bootstrap -->
+	<script
+		src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- FastClick -->
+	<script
+		src="assets/vendors/fastclick/lib/fastclick.js"></script>
+	<!-- NProgress -->
+	<script
+		src="assets/vendors/nprogress/nprogress.js"></script>
+	<!-- Chart.js -->
+	<script
+		src="assets/vendors/Chart.js/dist/Chart.min.js"></script>
+	<!-- gauge.js -->
+	<script
+		src="assets/vendors/gauge.js/dist/gauge.min.js"></script>
+	<!-- bootstrap-progressbar -->
+	<script
+		src="assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<!-- iCheck -->
+	<script
+		src="assets/vendors/iCheck/icheck.min.js"></script>
+	<!-- Skycons -->
+	<script src="assets/vendors/skycons/skycons.js"></script>
+	<!-- Flot -->
+	<script
+		src="assets/vendors/Flot/jquery.flot.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.pie.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.time.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.stack.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.resize.js"></script>
+	<!-- Flot plugins -->
+	<script
+		src="assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+	<script
+		src="assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+	<script
+		src="assets/vendors/flot.curvedlines/curvedLines.js"></script>
+	<!-- DateJS -->
+	<script
+		src="assets/vendors/DateJS/build/date.js"></script>
+	<!-- JQVMap -->
+	<script
+		src="assets/vendors/jqvmap/dist/jquery.vmap.js"></script>
+	<script
+		src="assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+	<script
+		src="assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+	<!-- bootstrap-daterangepicker -->
+	<script
+		src="assets/vendors/moment/min/moment.min.js"></script>
+	<script
+		src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+	<!-- Parsley -->
+	<!-- <script
+		src="assets/vendors/parsleyjs/dist/parsley.min.js"></script> -->
+
+
+
+	<!-- Custom Theme Scripts -->
+	<script src="assets/build/js/custom.min.js"></script>
+
+	<script
+	src='assets/js/mousetrap.min.js'></script>
+
+
+<script type="text/javascript">
+var db;
+	$(function () 
+	{
+		setInterval(function() {
+			if(navigator.onLine)
+			{
+				$('.online_led').show();
+				$('.offline_led').hide();
+			}
+			else
+			{
+				$('.online_led').hide();
+				$('.offline_led').show();
+			}
+		}, 500); // 500 milliseconds
+
+		
+		
+
+
+
+	if(localStorage.length > 0)
+			{
+				console.log("Session Present");	
+				for(let i = 0; i < localStorage.length; i++)
+							{
+								let key = localStorage.key(i);
+								//let value = localStorage.getItem(key);
+								var company_id = localStorage.getItem("company_id");
+								var unit_id = localStorage.getItem("unit_id");
+								
+																		
+							}										
+			}
+		else
+			{
+				console.log("Session Not Present");
+				location.href ='Login.html';
+			}
+		window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+		
+                var request = window.indexedDB.open("CoBakers", 1);
+
+                request.onerror = function(e)
+                {
+                        console.log("error: ");
+                };
+
+
+                request.onsuccess = function(e)
+                {
+                        db = request.result;
+                        console.log('Got a db connection! It is %s', db);
+                };
+
+                request.onupgradeneeded = function(e)
+                {
+                        var db = e.target.result;
+                        if(!db.objectStoreNames.contains('sales_order'))
+                        {
+                                var os = db.createObjectStore("sales_order", {keyPath: "order_id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("order_id", "order_id", { unique: true });
+                        }
+
+                        if(!db.objectStoreNames.contains('items'))
+                        {
+                                var os = db.createObjectStore("items", {keyPath: "item_id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("item_id", "item_id", { unique: true });
+                        }
+
+						if(!db.objectStoreNames.contains('user_details'))
+                        {
+                                var os = db.createObjectStore("user_details", {keyPath: "phone_no", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("phone_no", "phone_no", { unique: true });
+						}
+						if(!db.objectStoreNames.contains('order_id_details'))
+                        {
+                                var os = db.createObjectStore("order_id_details", {keyPath: "order_id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("order_id", "order_id", { unique: true });
+                        }
+						if(!db.objectStoreNames.contains('order_log'))
+                        {
+                                var os = db.createObjectStore("order_log", {keyPath: "order_id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("order_id", "order_id", { unique: true });
+                        }
+						if(!db.objectStoreNames.contains('pull_products_log'))
+                        {
+                                var os = db.createObjectStore("pull_products_log", {keyPath: "id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex( "id","id", { unique: true });
+                        }
+						if(!db.objectStoreNames.contains('push_orders_log'))
+                        {
+                                var os = db.createObjectStore("push_orders_log", {keyPath: "id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("id", "id", { unique: true });
+                        }
+						
+						if(!db.objectStoreNames.contains('pull_products_log'))
+                        {
+                                var os = db.createObjectStore("pull_products_log", {keyPath: "id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex( "id","id", { unique: true });
+                        }
+						if(!db.objectStoreNames.contains('push_orders_log'))
+                        {
+                                var os = db.createObjectStore("push_orders_log", {keyPath: "id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("id", "id", { unique: true });
+                        }
+
+
+                }
+
+		//alert("hello");
+
+
+
+/*********************** Start code for WidgetChart for Local Product Pull *************************/
+				//WidgetChart 1
+// 	setTimeout(function(){
+
+// 		var last_pull_date;
+// 		var items_count;
+// 		var product_pull_date = [];
+// 		var product_pull_count = [];
+// 		var pull_data_count = 0;
+			
+// 			var transaction = db.transaction("pull_products_log","readonly")
+// 			var store = transaction.objectStore("pull_products_log");
+			
+// 			var cursor = store.openCursor();
+						
+// 			cursor.onsuccess = function(e)
+// 				{
+					
+// 					var res = e.target.result;
+					
+// 					if(res)
+// 					{
+// 						var local_company_id = res.value.company_id;		
+// 						var local_unit_id = res.value.unit_id;
+// 						if(local_company_id == company_id && local_unit_id == unit_id)
+// 						{
+// 							pull_data_count++;
+// 							last_pull_date = res.value.pull_date;
+// 							items_count = res.value.items_count;
+// 							time = res.value.time;
+// 							var date_time = last_pull_date+' '+time;
+							
+							
+// 							product_pull_date.push(date_time);
+// 							product_pull_count.push(items_count);
+// 							res.continue(); 
+// 						}
+// 						else
+// 						{
+
+// 						}
+						
+						   
+								
+// 							//alert(last_pull_date);
+							
+							
+							
+	
+						  
+// 					}
+// 					else
+// 					{
+// 						//alert(product_pull_date.lenght)
+// 						//alert(pull_data_count)
+
+
+// 						var ctx = document.getElementById("widgetChart1");
+// 						if (ctx) {
+// 							// alert(last_pull_date);
+							
+
+
+
+
+
+
+// 						ctx.height = 130;
+// 						var myChart = new Chart(ctx, {
+// 							type: 'line',
+// 							data: {
+// 							labels: product_pull_date.slice(-5),
+// 							type: 'line',
+// 							datasets: [{
+// 								data: product_pull_count.slice(-5),
+// 								label: 'Pull Product Count ',
+// 								backgroundColor: 'rgba(255,255,255,.1)',
+// 								borderColor: 'rgba(255,255,255,.55)',
+// 							},]
+// 							},
+// 							options: {
+// 							maintainAspectRatio: true,
+// 							legend: {
+// 								display: false
+// 							},
+// 							layout: {
+// 								padding: {
+// 								left: 0,
+// 								right: 0,
+// 								top: 0,
+// 								bottom: 0
+// 								}
+// 							},
+// 							responsive: true,
+// 							scales: {
+// 								xAxes: [{
+// 								gridLines: {
+// 									color: 'transparent',
+// 									zeroLineColor: 'transparent'
+// 								},
+// 								ticks: {
+// 									fontSize: 2,
+// 									fontColor: 'transparent'
+// 								}
+// 								}],
+// 								yAxes: [{
+// 								display: false,
+// 								ticks: {
+// 									display: false,
+// 								}
+// 								}]
+// 							},
+// 							title: {
+// 								display: false,
+// 							},
+// 							elements: {
+// 								line: {
+// 								borderWidth: 0
+// 								},
+// 								point: {
+// 								radius: 0,
+// 								hitRadius: 10,
+// 								hoverRadius: 4
+// 								}
+// 							}
+// 							}
+// 						});
+// 						}
+
+
+// 					}
+																
+// 					}
+// },1000);
+	
+/*********************** Start code for WidgetChart for Local Product Pull *************************/
+
+
+/*********************** Start code for WidgetChart for Push Order to server *************************/
+				//WidgetChart 2
+// 				setTimeout(function(){
+
+// var last_pull_date;
+// var items_count;
+// var order_push_date = [];
+// var order_push_count = [];
+// //var order_push_count = 0;
+	
+// 	var transaction = db.transaction("push_orders_log","readonly")
+// 	var store = transaction.objectStore("push_orders_log");
+	
+// 	var cursor = store.openCursor();
+				
+// 	cursor.onsuccess = function(e)
+// 		{
+			
+// 			var res = e.target.result;
+			
+// 			if(res)
+// 			{
+// 				var local_company_id = res.value.company_id;		
+// 				var local_unit_id = res.value.unit_id;
+// 				if(local_company_id == company_id && local_unit_id == unit_id)
+// 				{
+// 					////pull_data_count++;
+// 					last_pull_date = res.value.push_date;
+// 					orders_count = res.value.orders_count;
+// 					time = res.value.time;
+// 					var date_time = last_pull_date+' '+time;
+					
+					
+// 					order_push_date.push(date_time);
+// 					order_push_count.push(orders_count);
+// 					res.continue(); 
+// 				}
+// 				else
+// 				{
+					
+// 				}
+// 			}
+// 			else
+// 			{
+// 					// //WidgetChart 2
+// 					console.log(order_push_date);
+// 					var ctx = document.getElementById("widgetChart2");
+// 					if (ctx) {
+// 					ctx.height = 115;
+// 					var myChart = new Chart(ctx, {
+// 						type: 'line',
+// 						data: {
+// 						labels:order_push_date.slice(-5),
+// 						type: 'line',
+// 						datasets: [{
+// 							data: order_push_count.slice(-5),
+// 							label: 'Total Order Count',
+// 							backgroundColor: 'transparent',
+// 							borderColor: 'rgba(255,255,255,.55)',
+// 						},]
+// 						},
+// 						options: {
+
+// 						maintainAspectRatio: false,
+// 						legend: {
+// 							display: false
+// 						},
+// 						responsive: true,
+// 						tooltips: {
+// 							mode: 'index',
+// 							titleFontSize: 12,
+// 							titleFontColor: '#000',
+// 							bodyFontColor: '#000',
+// 							backgroundColor: '#fff',
+// 							titleFontFamily: 'Montserrat',
+// 							bodyFontFamily: 'Montserrat',
+// 							cornerRadius: 3,
+// 							intersect: false,
+// 						},
+// 						scales: {
+// 							xAxes: [{
+// 							gridLines: {
+// 								color: 'transparent',
+// 								zeroLineColor: 'transparent'
+// 							},
+// 							ticks: {
+// 								fontSize: 2,
+// 								fontColor: 'transparent'
+// 							}
+// 							}],
+// 							yAxes: [{
+// 							display: false,
+// 							ticks: {
+// 								display: false,
+// 							}
+// 							}]
+// 						},
+// 						title: {
+// 							display: false,
+// 						},
+// 						elements: {
+// 							line: {
+// 							tension: 0.00001,
+// 							borderWidth: 1
+// 							},
+// 							point: {
+// 							radius: 4,
+// 							hitRadius: 10,
+// 							hoverRadius: 4
+// 							}
+// 						}
+// 						}
+// 					});
+// 					}
+
+// 				}
+// 			}
+// },1000);
+
+/*********************** Start code for WidgetChart for Push Order to Server *************************/
+
+/*********************** Start code for WidgetChart for Order count to server *************************/
+				//WidgetChart 2
+		
+
+// setTimeout(function(){
+    
+            
+// 	var transaction = db.transaction("sales_order","readonly")
+// 	var store = transaction.objectStore("sales_order");
+	
+// 	var cursor = store.openCursor();
+// 	var order_count;
+// 	var order_array = [];
+				
+// 	cursor.onsuccess = function(e)
+// 		{
+			
+// 			var res = e.target.result;
+			
+// 			if(res)
+// 			{
+// 				//alert('hi');
+// 				var local_company_id = res.value.company_id;
+// 				var local_unit_id = res.value.unit_id;
+// 				if(local_company_id == company_id && local_unit_id == unit_id)
+// 				{
+// 					order_date = res.value.order_date;
+// 					total_amount = res.value.total_amount;
+// 					order_count = 1 
+
+// 					order_count_array = 
+// 					{
+// 						'order_date' : order_date,
+// 						'order_count' : order_count,
+// 						'total_amount' : total_amount
+// 					}
+
+// 					order_array.push(order_count_array);
+// 				}
+// 				res.continue();     
+// 			}
+// 			else
+// 			{
+// 				order_array = order_array.sort();
+// 				//console.log(order_array);
+// 				var result = order_array.reduce(function(acc, obj) 
+// 				{ 
+// 					var key = obj.order_date; 
+// 					acc[key] = (acc[key] || 0) + +obj.order_count; 
+// 					return acc; 
+// 				},Object.create(null));
+				
+// 				var order_dates =Object.keys(result);
+// 				var order_counts =Object.values(result);
+
+
+// 				var ctx = document.getElementById("widgetChart3");
+// 				if (ctx) {
+// 				ctx.height = 115;
+// 				var myChart = new Chart(ctx, {
+// 					type: 'line',
+// 					data: {
+// 					labels: order_dates,
+// 					type: 'line',
+// 					datasets: [{
+// 						data: order_counts,
+// 						label: 'Number of Order',
+// 						backgroundColor: 'transparent',
+// 						borderColor: 'rgba(255,255,255,.55)',
+// 					},]
+// 					},
+// 					options: {
+
+// 					maintainAspectRatio: false,
+// 					legend: {
+// 						display: false
+// 					},
+// 					responsive: true,
+// 					tooltips: {
+// 						mode: 'index',
+// 						titleFontSize: 12,
+// 						titleFontColor: '#000',
+// 						bodyFontColor: '#000',
+// 						backgroundColor: '#fff',
+// 						titleFontFamily: 'Montserrat',
+// 						bodyFontFamily: 'Montserrat',
+// 						cornerRadius: 3,
+// 						intersect: false,
+// 					},
+// 					scales: {
+// 						xAxes: [{
+// 						gridLines: {
+// 							color: 'transparent',
+// 							zeroLineColor: 'transparent'
+// 						},
+// 						ticks: {
+// 							fontSize: 2,
+// 							fontColor: 'transparent'
+// 						}
+// 						}],
+// 						yAxes: [{
+// 						display: false,
+// 						ticks: {
+// 							display: false,
+// 						}
+// 						}]
+// 					},
+// 					title: {
+// 						display: false,
+// 					},
+// 					elements: {
+// 						line: {
+// 						borderWidth: 1
+// 						},
+// 						point: {
+// 						radius: 4,
+// 						hitRadius: 10,
+// 						hoverRadius: 4
+// 						}
+// 					}
+// 					}
+// 				});
+// 				}
+// 			}
+														
+// 			}
+													
+		
+// 	},1000);
+
+/*********************** End code for WidgetChart for Order count to Server *************************/
+
+/*********************** Start code for WidgetChart for Order Amount to server *************************/
+				//WidgetChart 2
+		
+
+// setTimeout(function(){
+    
+            
+// 	var transaction = db.transaction("sales_order","readonly")
+// 	var store = transaction.objectStore("sales_order");
+	
+// 	var cursor = store.openCursor();
+// 	var order_count;
+// 	var order_array = [];
+				
+// 	cursor.onsuccess = function(e)
+// 		{
+			
+// 			var res = e.target.result;
+			
+// 			if(res)
+// 			{
+// 				//alert('hi');
+// 				var local_company_id = res.value.company_id;
+// 				var local_unit_id = res.value.unit_id;
+// 				if(local_company_id == company_id && local_unit_id == unit_id)
+// 				{
+// 					order_date = res.value.order_date;
+// 					total_amount = res.value.total_amount;
+// 					order_count = 1 
+
+// 					order_count_array = 
+// 					{
+// 						'order_date' : order_date,
+// 						'order_count' : order_count,
+// 						'total_amount' : total_amount
+// 					}
+
+// 					order_array.push(order_count_array);
+// 				}
+// 				res.continue();     
+// 			}
+// 			else
+// 			{
+// 				//order_array = order_array.sort();
+// 				//console.log(order_array);
+// 				var result = order_array.reduce(function(acc, obj) 
+// 				{ 
+// 					var key = obj.order_date; 
+// 					acc[key] = (acc[key] || 0) + +obj.total_amount; 
+// 					return acc; 
+// 				},Object.create(null));
+				
+// 				var order_dates =Object.keys(result);
+// 				var order_amounts =Object.values(result);
+// 				console.log(order_dates);
+// 				console.log(order_amounts);
+
+// 				var ctx = document.getElementById("widgetChart4");
+// 				if (ctx) {
+// 				ctx.height = 115;
+// 				var myChart = new Chart(ctx, {
+// 					type: 'bar',
+// 					data: {
+// 					labels: order_dates,
+// 					datasets: [
+// 						{
+// 						label: "Amount of order",
+// 						data: order_amounts,
+// 						borderColor: "transparent",
+// 						borderWidth: "0",
+// 						backgroundColor: "rgba(255,255,255,.3)"
+// 						}
+// 					]
+// 					},
+// 					options: {
+// 					maintainAspectRatio: true,
+// 					legend: {
+// 						display: false
+// 					},
+// 					scales: {
+// 						xAxes: [{
+// 						display: false,
+// 						categoryPercentage: 1,
+// 						barPercentage: 0.65
+// 						}],
+// 						yAxes: [{
+// 						display: false
+// 						}]
+// 					}
+// 					}
+// 				});
+// 				}
+// 			}
+														
+// 			}
+													
+		
+// 	},1000); 
+
+/*********************** End code for WidgetChart for Order Amount to Server *************************/
+
+
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setTimeout(function(){
+		
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+		var yyyy = today.getFullYear();
+			if(dd<10) 
+			{
+				dd='0'+dd;
+			} 
+			if(mm<10) 
+			{
+				mm='0'+mm;
+			} 
+		today = dd+'-'+mm+'-'+yyyy;
+		var last_pull_date = 'No Products Pulled';
+			
+        var transaction = db.transaction("pull_products_log","readonly")
+		var store = transaction.objectStore("pull_products_log");
+		
+		var cursor = store.openCursor();
+					
+        cursor.onsuccess = function(e)
+			{
+                
+				var res = e.target.result;
+				
+				if(res)
+				{
+					var local_company_id = res.value.company_id;
+					var local_unit_id = res.value.unit_id;
+					if(local_company_id == company_id && local_unit_id == unit_id)
+					{
+						last_pull_date = res.value.pull_date;
+						 
+					}
+					else
+					{
+						$('#local_pull_date').html(last_pull_date);
+					}
+					res.continue();
+                      
+				}
+				else
+				{
+					$('#local_pull_date').html(last_pull_date);
+				}
+															
+				}
+														
+            
+		},1000);
+
+		$('#pull_details').click(function()
+		{
+			$('.dice').show();
+
+			var present_sale_order_count = 0;
+
+		var transaction = db.transaction("sales_order","readonly")
+		var store = transaction.objectStore("sales_order");
+		var countRequest = store.count();
+		//alert(countRequest);
+		var cursor = store.openCursor();
+		// countRequest.onsuccess = function(e)
+		// {
+		// 	var res = e.target.result;
+		// 	alert(res);
+		// }		
+					
+        cursor.onsuccess = function(e)
+			{
+				
+				
+                //var local_orders_count = 0;
+				var res = e.target.result;
+				
+				if(res)
+				{
+					var local_company_id = res.value.company_id;
+					var local_unit_id = res.value.unit_id;
+					if(local_company_id == company_id && local_unit_id == unit_id)
+					{
+						
+						//present_sale_order_count = 1;
+						//alert(present_sale_order_count);
+						
+					}
+					
+                res.continue();          
+				}
+				//alert(present_sale_order_count);
+															
+			}
+			//alert(present_sale_order_count);
+
+				
+			
+				
+			var post_data = 
+			{
+				'company_id': company_id,
+				'unit_id' : unit_id
+			}
+			//console.log(post_data);
+
+			if (navigator.onLine) 
+			{
+    			 //alert('Has connection, go do something');
+
+				
+			 $.ajax({
+					type : "GET",
+					//url : 'http://localhost:3000/fetchProductDetails?company_id'+company_id+'&unit_id'+unit_id,
+					url : 'http://localhost:3000/fetchProductDetails',
+
+					data : post_data,									
+					success : function(result) 
+					{
+					// alert(result);
+					 var data = JSON.parse(result);
+					// alert(data);
+					 var product_array = [];
+					 var recent_count = 0;
+					
+					 for (var i=0; i<data.length; i++)
+						{
+							var item_id = data[i].item_id;
+							var item_name = data[i].item_name;
+							var item_retail_price = data[i].item_retail_price;
+							var item_wholesale_price = data[i].item_wholesale_price;
+							var item_stock = data[i].item_stock;
+							var reference_code = data[i].reference_code;
+							var barcode_id = data[i].barcode_id;
+							var company_id = data[i].company_id;
+							var unit_id = data[i].unit_id;
+							//alert(item_id);
+							if(i<15)	
+								recent_count = 1;
+							else
+								recent_count = 0;						
+							
+							var product_details =
+							{
+								'item_id':item_id,
+								'item_name':item_name,
+								'item_retail_price':item_retail_price,
+								'item_wholesale_price':item_wholesale_price,
+								'item_stock':item_stock,
+								'reference_code' :reference_code,
+								'barcode_id':barcode_id,
+								'company_id' :company_id,
+								'unit_id':unit_id,
+								'mostly_used_count' : recent_count
+							}
+
+							product_array.push(product_details);
+						}
+						console.log(product_array);
+						var data = push_product_in_localdb(product_array);
+						
+
+					}
+			 });
+			}
+			else
+			{
+				// alert("No Internet Connection");
+				$('.dice').hide();
+				$('#No_internet_connection_Modal').modal('show');
+			}
+			
+		});
+		Mousetrap.bind(['ctrl+a'], function() {
+			location.href="POS_New_Order.html";
+		 });
+			$('.close_modal').click(function()
+            {
+				location.reload();
+				// redirect to login page
+			});
+			$('.sync_up_close_modal').click(function()
+            {
+				location.reload();
+				// redirect to login page
+			});
+			
+		 $('#log_out').click(function()
+            {
+				localStorage.clear();
+				location.href ='Login.html';
+
+				// redirect to login page
+			});
+
+
+			$('#delete_db').click(function()
+            {
+                $('#delete_db_modal').modal('show');
+                
+
+                // redirect to login page
+            });
+
+            $('#delete_database').click(function()
+            {
+               // db.close(); //EXPLICIT DB CLOSE
+				db.close();//closing the database
+				//self.close();//closing the web worker
+				
+                var request = window.indexedDB.deleteDatabase("CoBakers");
+
+                request.onerror = function(event) 
+                {
+                    console.log("delete error", event);
+                };
+
+                request.onsuccess = function(event) 
+                {
+                    console.log("delete success", event);
+                    localStorage.clear();
+                    location.href ='Login.html';    
+                };
+
+                request.onblocked = function(event) 
+                {
+					console.log("delete blocked", event);   
+					localStorage.clear();
+                    location.href ='Login.html'; 
+                };
+				
+
+            });
+
+		$('#push_details').click(function()
+		{
+			//alert('in push details');
+			$('.dice').show();
+			if(navigator.onLine)
+			{
+
+			var transaction = db.transaction("sales_order","readonly")
+			var store = transaction.objectStore("sales_order");
+			var cursor = store.openCursor();
+			var order_array = [];
+			var arr=[];
+			//var order_item;
+
+			cursor.onsuccess = function(e)
+			{
+				var res = e.target.result;
+				
+				
+				if(res)
+				{
+					//console.log("1");
+					var local_unit_id = res.value.unit_id;
+					var local_company_id = res.value.company_id;
+
+					if(local_company_id == company_id && local_unit_id == unit_id)
+					{	
+
+					var order_id = res.value.order_id;
+					var order_date = res.value.order_date;
+					var customer_name = res.value.customer_name;
+					var order_note = res.value.order_note;
+					var payment_method = res.value.payment_method;
+					var total_amount = res.value.total_amount;
+					var paid_amt = res.value.paid_amt;
+					var balance = res.value.balance;
+					
+					//var order_item = JSON.parse(res.value.order_item);
+					var order_item = res.value.order_item;
+					var user_no = res.value.user_no;
+					
+
+
+					var sales_details =
+						{
+							'order_id':order_id,
+							'order_date':order_date,
+							'customer_name':customer_name,
+							'order_note':order_note,
+							'payment_method':payment_method,
+							'total_amount':total_amount,
+							'paid_amt':paid_amt,
+							'balance':balance,
+							'unit_id':local_unit_id,
+							'company_id':local_company_id,
+							'user_no' : user_no,
+							'order_item':order_item
+						}
+
+					order_array.push(sales_details);
+					res.continue();
+
+				}
+				else
+				{
+					$('.dice').hide();		
+						console.log("No Recodrs Avalilabe To Synch");
+						$('#No_Orders_For_Sync_up_Modal').modal('show');
+				}					
+				}
+				
+				
+				else
+				{
+						
+					if(order_array.length >=1)
+					{
+						$.ajax({
+					type : "POST",
+					url : 'http://localhost:3000/pushOrderDetails',
+					contentType: 'application/json', 
+					data: JSON.stringify({order_array:order_array}),
+														
+					success : function(result) 
+					{
+						var data = result;
+						delete_orders(data);
+				
+					}
+					});
+															var today = new Date();
+															var dd = today.getDate();
+
+															var mm = today.getMonth()+1; 
+															var yyyy = today.getFullYear();
+															if(dd<10) 
+															{
+																dd='0'+dd;
+															} 
+
+															if(mm<10) 
+															{
+																mm='0'+mm;
+															} 
+
+															today = dd+'-'+mm+'-'+yyyy;
+															var push_date = today;
+
+															var date = new Date();
+															var hour = date.getHours() - (date.getHours() >= 12 ? 12 : 0);
+															var period = date.getHours() >= 12 ? 'PM' : 'AM';
+
+															//alert( hour  + ':' + date.getMinutes() + ' ' +period);
+															var time = hour  + ':' + date.getMinutes() + ' ' +period;
+															//console.log(today);
+															var orders_count = order_array.length;
+
+															var product_log = 
+															{
+																'push_date' : push_date,
+																'orders_count' : orders_count,
+																'time' : time,
+																'company_id' : company_id,
+																'unit_id' : unit_id
+
+															}
+															
+
+															var transaction = db.transaction(["push_orders_log"],"readwrite")
+															var store = transaction.objectStore("push_orders_log");
+															var request = store.add(product_log);
+															request.onsuccess = function(e)
+																{
+																	console.log("successfull added log");
+
+																}
+															request.onerror = function(e)
+																{
+																	console.log("error while adding log");
+																}
+
+					}
+					else
+					{	
+						$('.dice').hide();		
+						console.log("No Recodrs Avalilabe To Synch");
+						$('#No_Orders_For_Sync_up_Modal').modal('show');
+					}
+				}
+			}
+											
+		}
+			else
+			{
+				$('.dice').hide();
+				// alert("No Internet Connection");
+				$('#No_internet_connection_Modal').modal('show');
+			}
+		});
+
+		setTimeout(function(){
+			var total = 0;
+			var total_sale_order_count = 0;
+        var transaction = db.transaction("sales_order","readonly")
+		var store = transaction.objectStore("sales_order");
+		var countRequest = store.count();
+		//alert(countRequest);
+		var cursor = store.openCursor();
+		
+					
+        cursor.onsuccess = function(e)
+			{
+				
+                
+				var res = e.target.result;
+				
+				if(res)
+				{
+					var local_company_id = res.value.company_id;
+					var local_unit_id = res.value.unit_id;
+					if(local_company_id == company_id && local_unit_id == unit_id)
+					{
+						total_sale_order_count++;
+                       
+						var total_amount = res.value.total_amount;	
+						 //alert(order_cnt);
+                        
+						total = parseFloat(total) + parseFloat(total_amount);
+						
+					}
+					else
+					{
+						$('#offline_order_count').html(total_sale_order_count);
+						$('#total_sale_order_amount').html('&#x20b9;'+total);
+					}
+                res.continue();          
+				}
+				else
+				{
+					$('#offline_order_count').html(total_sale_order_count);
+					$('#total_sale_order_amount').html('&#x20b9;'+total);
+				}
+															
+				}
+														
+            
+		},1000);
+
+		/*----------------------------------------------*/
+
+		setTimeout(function(){
+		var transaction = db.transaction("sales_order","readonly")
+		var store = transaction.objectStore("sales_order");
+		var countRequest = store.count();
+		$('#pull_error').html('');
+		
+		var cursor = store.openCursor();
+		countRequest.onsuccess = function(e)
+		{
+			var res = e.target.result;
+
+			if(res >= 1)
+			{
+				
+				//alert(res);
+				document.getElementById("pull_details").disabled = true;
+				$('#pull_error').append('<p>Please Push Local Orders To Pull New Products </p>');
+
+			}
+			else
+			{
+				//alert('hi');
+				document.getElementById("pull_details").disabled = false;
+
+			}
+			
+		}		
+					
+       
+														
+            
+		},1000);
+
+		/*----------------------------------------------*/
+
+
+			
+		
+		setTimeout(function(){
+			//alert("Product")
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+		var yyyy = today.getFullYear();
+			if(dd<10) 
+			{
+				dd='0'+dd;
+			} 
+			if(mm<10) 
+			{
+				mm='0'+mm;
+			} 
+		today = dd+'-'+mm+'-'+yyyy;
+		var last_pull_date = 'No Products Pulled.';
+			
+        var transaction = db.transaction("pull_products_log","readonly")
+		var store = transaction.objectStore("pull_products_log");
+		
+		var cursor = store.openCursor();
+					
+        cursor.onsuccess = function(e)
+			{
+                
+				var res = e.target.result;
+				
+				if(res)
+				{
+					var local_company_id = res.value.company_id;
+					var local_unit_id = res.value.unit_id;
+					if(local_company_id == company_id && local_unit_id == unit_id)
+					{
+						last_pull_date = res.value.pull_date;
+						res.continue(); 
+					}
+					else
+					{
+						$('#local_pull_date').html(last_pull_date);
+					}
+                       
+							
+						//alert(last_pull_date);
+                        
+						
+						
+
+                      
+				}
+				else
+				{
+					$('#local_pull_date').html(last_pull_date);
+				}
+															
+				}
+														
+            
+		},1000);
+		
+		setTimeout(function(){
+	//	alert("Order")
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+		var yyyy = today.getFullYear();
+			if(dd<10) 
+			{
+				dd='0'+dd;
+			} 
+			if(mm<10) 
+			{
+				mm='0'+mm;
+			} 
+		today = dd+'-'+mm+'-'+yyyy;
+		var last_push_date = 'No Orders Pushed.';
+			
+        var transaction = db.transaction("push_orders_log","readonly")
+		var store = transaction.objectStore("push_orders_log");
+		
+		var cursor = store.openCursor();
+					
+        cursor.onsuccess = function(e)
+			{
+                
+				var res = e.target.result;
+				
+				if(res)
+				{
+					var local_company_id = res.value.company_id;
+					var local_unit_id = res.value.unit_id;
+					if(local_company_id == company_id && local_unit_id == unit_id)
+					{
+						last_push_date = res.value.push_date;	
+						res.continue(); 
+					}
+					else
+					{
+						$('#local_push_date').html(last_push_date);
+					}      
+				}
+				else
+				{
+					$('#local_push_date').html(last_push_date);
+				}
+															
+				}
+														
+            
+        },1000);
+	});
+
+function delete_orders(data)
+{
+	for (var i=0; i<data.length; i++)
+	{
+			var order_id = data[i];
+			console.log(order_id);
+							var transaction = db.transaction(["sales_order"],"readwrite")
+							var store = transaction.objectStore("sales_order");
+							var request = store.delete(order_id);
+
+							var transaction = db.transaction(['sales_order'], 'readwrite');
+  							var objectStore = transaction.objectStore('sales_order');
+
+							objectStore.openCursor().onsuccess = function(event) 
+							{
+							var cursor = event.target.result;
+							if(cursor) 
+							{
+							if(cursor.value.order_id === order_id) 
+							{
+								var request = cursor.delete();
+								request.onsuccess = function() 
+								{
+									console.log('Deleted order');
+								};
+								request.onerror = function()
+								{
+									console.log("Order Not Deleted");
+								}
+							}
+							
+							
+							cursor.continue();        
+							} 
+							else 
+							{
+							//console.log('All Orders Deleted.');
+						//	$('#Successfully_Sync_up_order_Modal').modal('show');         
+							}
+						};
+			
+	}
+	transaction.oncomplete  = function(e)
+	{
+			$('.dice').hide();
+						$('.sync_up_close_modal').prop("disabled", false);
+						$('#Orders_sync_up_count').html(data.length);
+						$('#Successfully_Sync_up_order_Modal').modal('show');
+	}
+}
+
+
+function push_product_in_localdb(product_array)
+{
+	if(localStorage.length > 0)
+			{
+				console.log("Session Present");	
+				for(let i = 0; i < localStorage.length; i++)
+							{
+								let key = localStorage.key(i);
+								//let value = localStorage.getItem(key);
+								var company_id = localStorage.getItem("company_id");
+								var unit_id = localStorage.getItem("unit_id");
+								
+																		
+							}										
+			}
+
+		var length = Object.keys(product_array).length;
+		var i = 0;
+		var len_count = length;
+		var transaction;
+															for (; i< length ; i++)
+															{
+																
+																var product_details =
+																{
+																	'item_id': product_array[i].item_id,
+																	'item_name': product_array[i].item_name,
+																	'item_retail_price': product_array[i].item_retail_price,
+																	'item_wholesale_price': product_array[i].item_wholesale_price,
+																	'item_stock': product_array[i].item_stock,
+																	'reference_code': product_array[i].reference_code,
+																	'barcode_id': product_array[i].barcode_id,
+																	'company_id': product_array[i].company_id,
+																	'unit_id': product_array[i].unit_id,
+																	'mostly_used_count': product_array[i].mostly_used_count
+																}
+																transaction = db.transaction(["items"],"readwrite")
+																var store = transaction.objectStore("items");
+																var request = store.put(product_details);
+																request.onsuccess = function(e)
+																{
+																	console.log("successfull added data");
+																	
+																	
+																	
+																}
+																request.onerror = function(e)
+																{
+																	console.log("error while adding data");
+																}
+															
+																
+															}
+
+															transaction.oncomplete  = function(e)
+																{
+																	//var length = Object.keys(product_array).length;
+																	$('#products_count').html(length);
+																	$('.dice').hide();
+																	$('#Successfully_Products_Added_Modal').modal('show');
+																}
+
+															var today = new Date();
+															var dd = today.getDate();
+
+															var mm = today.getMonth()+1; 
+															var yyyy = today.getFullYear();
+															if(dd<10) 
+															{
+																dd='0'+dd;
+															} 
+
+															if(mm<10) 
+															{
+																mm='0'+mm;
+															} 
+
+															today = dd+'-'+mm+'-'+yyyy;
+															var pull_date = today;
+
+															var date = new Date();
+															var hour = date.getHours() - (date.getHours() >= 12 ? 12 : 0);
+															var period = date.getHours() >= 12 ? 'PM' : 'AM';
+
+															//alert( hour  + ':' + date.getMinutes() + ' ' +period);
+															var time = hour  + ':' + date.getMinutes() + ' ' +period;
+															//console.log(today);
+															var items_count = product_array.length;
+
+															var product_log = 
+															{
+																'pull_date' : pull_date,
+																'items_count' : items_count,
+																'time' : time,
+																'company_id' : company_id,
+																'unit_id' : unit_id
+
+															}
+															
+
+															var transaction = db.transaction(["pull_products_log"],"readwrite")
+															var store = transaction.objectStore("pull_products_log");
+															var request = store.add(product_log);
+															request.onsuccess = function(e)
+																{
+																	console.log("successfull added log");
+
+																}
+															request.onerror = function(e)
+																{
+																	console.log("error while adding log");
+																}
+
+				
+}						
+
+
+</script>
+<!--<script src="assets/js/main.js"></script> -->
+
+</body>
+</html>

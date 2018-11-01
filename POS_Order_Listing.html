@@ -1,0 +1,695 @@
+
+<!--<link href="<?php echo base_url('assets/datatables/css/jquery.dataTables.min.css')?>" rel="stylesheet">-->
+<script src="assets/jquery/jquery-2.2.3.min.js"></script>
+<link
+	href="assets/datatables/css/dataTables.bootstrap.min.css"
+	rel="stylesheet">
+<!--new updated-->
+<script
+	src="assets/datatables/js/jquery.dataTables.min.js"></script>
+<script
+	src="assets/datatables/js/dataTables.bootstrap.min.js"></script>
+<!--new updated-->
+<script
+	src="assets/datatables/js/dataTables.buttons.min.js"></script>
+<script
+	src="assets/datatables/js/buttons.print.min.js"></script>
+<link
+	href="assets/datatables/css/buttons.dataTables.min.css"
+	rel="stylesheet">
+        <script 	src="https://momentjs.com/downloads/moment.js"></script>
+        
+
+       
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Meta, title, CSS, favicons, etc. -->
+<link rel="SHORTCUT ICON"
+	href="assets/images/favicon.png">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>COBAKERS - Order Listing</title>
+<!--<link rel="SHORTCUT ICON" href="company_image" />
+<!-- Bootstrap -->
+<link
+	href="assets/vendors/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	href="assets/vendors/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<!-- NProgress -->
+<link
+	href="assets/vendors/nprogress/nprogress.css"
+	rel="stylesheet">
+<!-- iCheck -->
+<link
+	href="assets/vendors/iCheck/skins/flat/green.css"
+	rel="stylesheet">
+<!-- bootstrap-wysiwyg -->
+<link
+	href="assets/vendors/google-code-prettify/bin/prettify.min.css"
+	rel="stylesheet">
+
+<!-- Select2 -->
+<link
+	href="assets/vendors/select2/dist/css/select2.min.css"
+	rel="stylesheet">
+<!-- Switchery -->
+<link
+	href="assets/vendors/switchery/dist/switchery.min.css"
+	rel="stylesheet">
+<!-- starrr -->
+<link
+	href="assets/vendors/starrr/dist/starrr.css"
+	rel="stylesheet">
+
+
+
+
+<!-- bootstrap-progressbar -->
+<link
+	href="assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"
+	rel="stylesheet">
+<!-- JQVMap -->
+<link
+	href="assets/vendors/jqvmap/dist/jqvmap.min.css"
+	rel="stylesheet" />
+<!-- bootstrap-daterangepicker -->
+<link
+	href="assets/vendors/bootstrap-daterangepicker/daterangepicker.css"
+	rel="stylesheet">
+
+<!-- Custom Theme Style -->
+
+<link href="assets/build/css/custom.css"
+	rel="stylesheet">
+<link href="assets/css/loader.css"
+	rel="stylesheet">
+<link href="assets/css/coreco_design_ui.css"
+	rel="stylesheet">
+<!-- Custom development common validation Scripts -->
+<script
+	src="assets/js/custom_form_validation.js"></script>
+
+
+
+<style>
+.bootstrap-datetimepicker-widget table td.active,
+	.bootstrap-datetimepicker-widget table td.active:hover {
+	background-color: #337ab7;
+	color: #fff;
+}
+</style>
+
+<style>
+		
+
+/*********************** start code for online offline style ****************************/
+
+.led-box {
+  height: 15px;
+  /* width: 25%; */
+  margin: 10px 10px 10px 2px;
+  float: right;
+  display: none;
+}
+
+.led-box p {
+  font-size: 12px;
+  text-align: center;
+  margin: 1em;
+}
+
+.led-red {
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  background-color: #808080;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #999 0 -1px 9px, #fff 0 2px 12px;;
+  -webkit-animation: blinkRed 0.5s infinite;
+  -moz-animation: blinkRed 0.5s infinite;
+  -ms-animation: blinkRed 0.5s infinite;
+  -o-animation: blinkRed 0.5s infinite;
+  animation: blinkRed 0.5s infinite;
+}
+
+.led-green {
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  background-color: #0973f7;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #1aa5bb26 0 2px 12px;
+}
+
+
+/*********************** End code for online offline style ****************************/
+		</style>
+		
+
+
+</head>
+
+<body class="nav-sm">
+	<div class="container body">
+		<div class="main_container">
+
+
+			<!-- top navigation -->
+			
+			<div class="top_nav" style="margin-left: 0px;">
+			
+			
+				<div class="nav_menu" >
+				
+					<nav>
+							
+							<div style="display: initial;">
+									<a href="pos_dashboard.html" data-toggle="tooltip" data-placement="right" title="Dashboard" ><img src="assets/images/Dashboard.png" class="img" width="30" style="margin-top: 1%;margin-left: 1%;"></a>
+									<a href="POS_New_Order.html" data-toggle="tooltip" data-placement="right" title="Generate Sales Order"><img src="assets/images/New_Order2.png" class="img" width="30" style="margin-top: 1%;margin-left: 1%;"></a>
+									<a href="#" data-toggle="tooltip" data-placement="right" title="Order Listing"><img src="assets/images/listing.png" class="img" width="30" style="margin-top: 1%;margin-left: 1%;"></a>
+							</div>
+							<div class="led-box online_led" data-toggle="tooltip" data-placement="bottom" title="Online">
+								<div class="led-green"></div>
+							</div>
+								
+							<div class="led-box offline_led" data-toggle="tooltip" data-placement="bottom" title="Offline">
+								<div class="led-red"></div>
+							</div>
+						<a style="float: left; margin: 0; padding-top: 16px;"><span
+							class="h4"><b>
+									
+                                	</b></span><span class="font-thin"><b></b> <span class="h4">
+																</span></a>
+						
+						
+						
+						<ul class="nav navbar-nav pull-right">
+	
+							<li class=""><a href="javascript:;"
+								class="user-profile dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false"> <img
+									src="assets/images/img.png" alt="">Operator
+								 <span class=" fa fa-angle-down"></span>
+							</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right">
+									<!--<li><a
+						pos_dashboard				href="<?php echo base_url().'Reset_password/unit/'; ?>">Reset
+											Password</a></li>
+									-->
+                                    
+									<li><a href="#" id="log_out">Log
+										Out</a></li>
+								</ul></li>
+
+							
+						</ul>
+						
+					</nav>
+				</div>
+			</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" style="margin-left: 0px;" role="main">
+
+
+				<div class="row">
+
+					<div class="x_panel">
+	<div class="x_title">
+		<div class="col-md-6">
+			<h4>Outlet Sales Orders</h4>
+		</div>
+
+		<div class="col-md-3 pull-right">
+
+			<a
+				href="POS_New_Order.html"
+				class="btn btn-success pull-right"> Generate New Order </a>
+                
+		</div>
+
+
+		<div class="clearfix"></div>
+	</div>
+	
+	<div class="container">
+
+
+
+		<table id="table" class="display table table-striped table-bordered"
+			cellspacing="0" width="100%">
+			<thead>
+               
+				<tr>
+					<th width="10%">Order ID</th>
+					<th width="10%">Order Date</th>
+					<th width="18%">Customer Name</th>
+					<th width="10%">Total Amount</th>
+					<th width="12%">Received Amount</th>
+					<th width="11%">Balance Amount</th>
+					<th width="10%">Action</th>
+				</tr>
+			</thead>
+			
+		</table>
+	</div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div class="clearfix"></div>
+
+
+</div>
+</div>
+<div class="modal fade" id="sales_order_edit" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+	data-keyboard="false" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close close_modal" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Sales Order - Payment</h4>
+			</div>
+			<div class="modal-body">
+				<form data-parsley-validate class="form-horizontal form-label-left"
+					name="formdata" id="formdata">
+					<div class="x_content">
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+							<div class="col-md-6 col-sm-12 col-xs-12 form-group">
+								<label>Order No.</label> <input type="text" id="sales_order_id"
+									class="form-control" name="sales_order_id"
+									placeholder="Sales Order ID" readonly />
+							</div>
+							<div class="col-md-6 col-sm-12 col-xs-12 form-group">
+								<label>Total Amount (INR)</label> <input type="text"
+									id="total_bill_amount" class="form-control"
+									name="total_bill_amount" placeholder="Total Amount" readonly />
+							</div>
+							<div class="col-md-6 col-sm-12 col-xs-12 form-group">
+								<label>Received Amount (INR)</label> <input type="text"
+									id="total_paid_amount" class="form-control"
+									name="total_paid_amount" placeholder="Paid Amount" readonly />
+							</div>
+							<div class="col-md-6 col-sm-12 col-xs-12 form-group">
+								<label>Balance Amount (INR)</label> <input type="text"
+									id="total_balance_amount" class="form-control"
+									name="total_balance_amount" placeholder="Balance Amount"
+									readonly />
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+								<label>Received Now (INR)</label> <input type="text"
+									id="total_bill_pay_now" class="form-control"
+									name="total_bill_pay_now" placeholder="Payment Received Amount"
+									value="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46 || event.which === 8" />
+								<label id="blank_error" style="display: none; color: red;">
+									Please enter received now amount.</label> <label id="validate_error"
+									style="display: none; color: red;"> Please enter
+									received now amount less than or equal to balance amount.</label>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+							style="text-align: right">
+							<button type="button" id="pay_now_amount" class="btn btn-primary">Save</button>
+							<button type="button" id="cancel"
+								class="btn btn-primary close_modal" data-dismiss="modal">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+				</div>
+
+
+
+			</div>
+		</div>
+		<!-- /page content -->
+
+		<!-- footer content -->
+		<footer style="margin-left: 0px;">
+			<div class="pull-right">
+				&copy; 2017-18 Powered by <a href="https://corecotechnologies.com"
+					target="_blank">CoReCo Technologies</a>
+			</div>
+			<div class="clearfix"></div>
+		</footer>
+		<!-- /footer content -->
+	</div>
+	</div>
+
+
+	<!-- jQuery 
+<script src="<?php echo base_url();?>assets/vendors/jquery/dist/jquery.min.js"></script>-->
+	<!-- Bootstrap -->
+	<script
+		src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- FastClick -->
+	<script
+		src="assets/vendors/fastclick/lib/fastclick.js"></script>
+	<!-- NProgress -->
+	<script
+		src="assets/vendors/nprogress/nprogress.js"></script>
+	<!-- Chart.js -->
+	<script
+		src="assets/vendors/Chart.js/dist/Chart.min.js"></script>
+	<!-- gauge.js -->
+	<script
+		src="assets/vendors/gauge.js/dist/gauge.min.js"></script>
+	<!-- bootstrap-progressbar -->
+	<script
+		src="assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<!-- iCheck -->
+	<script
+		src="assets/vendors/iCheck/icheck.min.js"></script>
+	<!-- Skycons -->
+	<script src="assets/vendors/skycons/skycons.js"></script>
+	<!-- Flot -->
+	<script
+		src="assets/vendors/Flot/jquery.flot.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.pie.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.time.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.stack.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.resize.js"></script>
+	<!-- Flot plugins -->
+	<script
+		src="assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+	<script
+		src="assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+	<script
+		src="assets/vendors/flot.curvedlines/curvedLines.js"></script>
+	<!-- DateJS -->
+	<script
+		src="assets/vendors/DateJS/build/date.js"></script>
+	<!-- JQVMap -->
+	<script
+		src="assets/vendors/jqvmap/dist/jquery.vmap.js"></script>
+	<script
+		src="assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+	<script
+		src="assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+	<!-- bootstrap-daterangepicker -->
+	<script
+		src="assets/vendors/moment/min/moment.min.js"></script>
+	<script
+		src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+	<!-- Parsley -->
+	<script
+		src="assets/vendors/parsleyjs/dist/parsley.min.js"></script>
+
+
+
+	<!-- Custom Theme Scripts -->
+	<script src="assets/build/js/custom.min.js"></script>
+
+	<script
+	src='assets/js/mousetrap.min.js'></script>
+
+
+	<script type="text/javascript">
+		if(localStorage.length > 0)
+			{
+				console.log("Session Present");	
+				for(let i = 0; i < localStorage.length; i++)
+							{
+								let key = localStorage.key(i);
+								//let value = localStorage.getItem(key);
+								var company_id = localStorage.getItem("company_id");
+								var unit_id = localStorage.getItem("unit_id");
+								
+																		
+							}										
+			}
+		else
+			{
+				console.log("Session Not Present");
+				location.href ='Login.html';
+			}
+    var sales_order = Array();
+    window.onload = function () {
+     initDb();
+     initGrid();
+}
+ $(function () 
+            {
+				$('#log_out').click(function()
+            {
+				//alert('hi');
+				localStorage.clear();
+
+				// redirect to login page
+				location.href ='Login.html';
+			});
+			Mousetrap.bind(['ctrl+b'], function() {
+				window.history.back();
+			});
+			setInterval(function() {
+			if(navigator.onLine)
+			{
+				$('.online_led').show();
+				$('.offline_led').hide();
+			}
+			else
+			{
+				$('.online_led').hide();
+				$('.offline_led').show();
+			}
+		}, 500); // 500 milliseconds
+
+			$('#cancel').click(function()
+			{
+				//alert('hi');
+				$('#total_bill_pay_now').val("0");
+			});
+
+
+			// $('.modal_show').click(function()
+			// {
+			// 	alert("hey")
+			// 	$('#sales_order_edit').modal("show");
+			// });
+         //{ data: "Action", className: "dt-center", defaultContent: '<button id="order_edit" class="btn btn-primary order_edit product_sales_order_id btn-xs" >Payment</button><a href="#" id="order_display" class="btn btn-primary order_display btn-xs" >Display</a>' }
+
+
+
+			
+                $('#pay_now_amount')
+						.click(
+								function() {
+									
+									$('#blank_error').hide();
+									$('#validate_error').hide();
+									var order_id = $('#sales_order_id').val();
+									var total_bill_amount = parseFloat($(
+											'#total_bill_amount').val());
+									var total_paid_amount = parseFloat($(
+											'#total_paid_amount').val());
+									var total_balance_amount = parseFloat($(
+											'#total_balance_amount').val());
+									var total_bill_pay_now = parseFloat($(
+											'#total_bill_pay_now').val());
+
+									if (total_bill_pay_now == 0
+											|| total_bill_pay_now == '') {
+										$('#blank_error').show();
+										
+										return false;
+									}
+
+									if (total_bill_pay_now > total_balance_amount) {
+										$('#validate_error').show();
+										
+										return false;
+                                    }
+                                    var new_total_paid = total_paid_amount + total_bill_pay_now;
+                                    var new_balance_amount = total_balance_amount - total_bill_pay_now;
+                                    
+
+                                    
+                                    update_payment(order_id,new_total_paid,new_balance_amount);
+                                   
+
+
+								});
+            });
+      
+function update_payment(order_id,new_total_paid,new_balance_amount)
+{
+    transaction = db.transaction("sales_order","readwrite")
+	var store = transaction.objectStore("sales_order");
+	store.openCursor().onsuccess = function(event) 
+	    {
+			var cursor = event.target.result;
+			if(cursor) 
+			{
+				if(cursor.value.order_id === order_id) 
+				{
+																				
+					var updateData = cursor.value;
+                    updateData.paid_amt = new_total_paid;
+                    updateData.balance = new_balance_amount;
+					var request = cursor.update(updateData);
+					request.onsuccess = function() 
+					{
+						console.log("Payment Updated");
+					};
+					request.onerror = function()
+					{
+						console.log("Payment Not Updated");   
+					};
+				};
+				cursor.continue();   
+			}
+	};
+	transaction.oncomplete = function ()
+	{
+		location.reload();
+	}
+	 
+}
+
+                        
+function initDb() {
+     var request = indexedDB.open("CoBakers", 1);
+
+     request.onsuccess = function (event) {
+          db = request.result;
+          showAllItems();
+     };
+
+     request.onerror = function (event) {
+     };
+
+     request.onupgradeneeded = function (event) {
+          var objectStore = event.currentTarget.result.createObjectStore("sales_order", { keyPath: "order_id", autoIncrement: true });
+     };
+}
+
+function initGrid() {
+ 
+ var table = $('#table').DataTable({
+     data: null,
+     columns: [
+         { data: "order_id", className: "dt-center"},
+         { data: "order_date", className: "dt-center" },
+         { data: "customer_name", className: "dt-center" },
+         { data: "total_amount", className: "dt-center" },
+         { data: "paid_amt", className: "dt-center" },
+		 { data: "balance", className: "dt-center" },
+         { data: "Action", className: "dt-center", defaultContent: '<button id="order_edit" class="btn btn-primary order_edit product_sales_order_id modal_show btn-xs" >Payment</button><a href="#" id="order_display" class="btn btn-primary order_display btn-xs" >Display</a>' }
+     ]
+ });
+
+           
+                
+                $('#table tbody').on('click', '.order_edit', function () {
+        var selectedProduct = table.row($(this).parents('tr')).data();
+
+      
+        $('#sales_order_id').val(selectedProduct["order_id"]);
+		$('#total_bill_amount').val(selectedProduct["total_amount"]);
+		$('#total_paid_amount').val(selectedProduct["paid_amt"]);
+		$('#total_balance_amount').val(selectedProduct["balance"]);
+		if(selectedProduct["balance"]>0)
+				$('#sales_order_edit').modal("show");
+    });
+
+    $('#table tbody').on('click', '.order_display', function () {
+        var selectedProduct = table.row($(this).parents('tr')).data();
+        var order_id = selectedProduct["order_id"];
+        location.href="POS_Order_Display.html?Order_id="+order_id;
+    });
+
+
+    
+
+}
+
+function showAllItems() {
+    var transaction = db.transaction(["sales_order"], "readwrite");
+    var objectStore = transaction.objectStore("sales_order");
+    var request = objectStore.openCursor();
+
+    request.onsuccess = function (event) {
+        var res = event.target.result;
+        if (res) {
+
+			var local_company_id = res.value.company_id;
+			var local_unit_id = res.value.unit_id;
+			// alert(local_unit_id);
+			// alert('hi');
+			// alert(unit_id);
+			if(local_company_id == company_id && local_unit_id == unit_id)
+			{
+				//alert('hi');
+            var order_id = res.value.order_id;
+					var order_date = res.value.order_date;
+					var customer_name = res.value.customer_name;
+					var total_amount = res.value.total_amount;
+					var paid_amt = res.value.paid_amt;
+					var balance = res.value.balance;
+                sales_order.push({
+                            'order_id':order_id,
+							'order_date':order_date,
+							'customer_name':customer_name,
+							'total_amount':total_amount,
+							'paid_amt':paid_amt,
+							'balance':balance
+			});
+		}
+		
+            res.continue();
+        }
+        else {
+            //After reading all products from IndexedDB, add all product data to JQuery Grid
+            $('#table').DataTable().rows.add(sales_order).draw();
+
+        };
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </script>
+
+
+
+</body>
+</html>

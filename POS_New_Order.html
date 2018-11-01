@@ -1,0 +1,2161 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="SHORTCUT ICON"
+	href="assets/images/favicon.png">
+<title>CoBakers - New Order</title>
+<!-- Bootstrap -->
+<link
+	href="assets/vendors/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	href="assets/vendors/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<!-- NProgress -->
+<link
+	href="assets/vendors/nprogress/nprogress.css"
+	rel="stylesheet">
+<!-- iCheck -->
+<link
+	href="assets/vendors/iCheck/skins/flat/green.css"
+	rel="stylesheet">
+<!-- bootstrap-wysiwyg -->
+<link
+	href="assets/vendors/google-code-prettify/bin/prettify.min.css"
+	rel="stylesheet">
+
+<!-- Select2 -->
+<link
+	href="assets/vendors/select2/dist/css/select2.min.css"
+	rel="stylesheet">
+<!-- Switchery -->
+<link
+	href="assets/vendors/switchery/dist/switchery.min.css"
+	rel="stylesheet">
+<!-- starrr -->
+<link
+	href="assets/vendors/starrr/dist/starrr.css"
+	rel="stylesheet">
+
+
+
+
+<!-- bootstrap-progressbar -->
+<link
+	href="assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"
+	rel="stylesheet">
+<!-- JQVMap -->
+<link
+	href="assets/vendors/jqvmap/dist/jqvmap.min.css"
+	rel="stylesheet" />
+<!-- bootstrap-daterangepicker -->
+<link href="assets/vendors/bootstrap-daterangepicker/daterangepicker.css"
+	rel="stylesheet">
+
+<!-- Custom Theme Style -->
+
+<link href="assets/build/css/custom.css"
+	rel="stylesheet">
+<link href="assets/css/loader.css"
+	rel="stylesheet">
+<link href="assets/css/coreco_design_ui.css"
+	rel="stylesheet">
+<!-- Custom development common validation Scripts -->
+<script src="assets/js/custom_form_validation.js"></script>
+
+
+<style>
+.bootstrap-datetimepicker-widget table td.active,
+	.bootstrap-datetimepicker-widget table td.active:hover {
+	background-color: #337ab7;
+	color: #fff;
+}
+
+.price {
+	font-size: 14px;
+	font-weight: 100;
+	color: #555;
+	margin: 0;
+}
+
+.hide_part_of_billing {
+	display: none;
+}
+
+.quantity_error {
+	border-color: red;
+}
+</style>
+
+<style>
+/*********************** start code for online offline style ****************************/
+
+.led-box {
+  height: 15px;
+  /* width: 25%; */
+  margin: 10px 10px 10px 2px;
+  float: right;
+  display: none;
+}
+
+.led-box p {
+  font-size: 12px;
+  text-align: center;
+  margin: 1em;
+}
+
+.led-red {
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  background-color: #808080;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #999 0 -1px 9px, #fff 0 2px 12px;;
+  -webkit-animation: blinkRed 0.5s infinite;
+  -moz-animation: blinkRed 0.5s infinite;
+  -ms-animation: blinkRed 0.5s infinite;
+  -o-animation: blinkRed 0.5s infinite;
+  animation: blinkRed 0.5s infinite;
+}
+
+.led-green {
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  background-color: #0973f7;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #1aa5bb26 0 2px 12px;
+}
+
+
+/*********************** End code for online offline style ****************************/
+		</style>
+		
+
+</head>
+
+<body class="nav-sm">
+	<div class="container body">
+		<div class="main_container">
+
+
+			
+				<div class="top_nav" style="margin-left: 0px;">
+						<div class="nav_menu" style="/*margin-top: 5px;*/">
+							<nav>
+									<div style="display: initial;">
+										<a href="pos_dashboard.html" data-toggle="tooltip" data-placement="right" title="Dashboard" ><img src="assets/images/Dashboard.png" class="img" width="30" style="margin-top: 1%;margin-left: 1%;"></a>
+										<a href="#" data-toggle="tooltip" data-placement="right" title="Generate Sales Order"><img src="assets/images/New_Order2.png" class="img" width="30" style="margin-top: 1%;margin-left: 1%;"></a>
+										<a href="POS_Order_Listing.html" data-toggle="tooltip" data-placement="right" title="Order Listing"><img src="assets/images/listing.png" class="img" width="30" style="margin-top: 1%;margin-left: 1%;"></a>
+									</div>
+
+									<div class="led-box online_led" data-toggle="tooltip" data-placement="bottom" title="Online">
+										<div class="led-green"></div>
+									</div>
+										
+									<div class="led-box offline_led" data-toggle="tooltip" data-placement="bottom" title="Offline">
+										<div class="led-red"></div>
+									</div>
+								<a style="float: left; margin: 0; padding-top: 16px;"><span
+									class="h4"><b>
+											
+									</b></span><span class="font-thin"><b></b> <span class="h4">
+																		</span></a>
+								
+								<ul class="nav navbar-nav pull-right">
+			
+									<li class=""><a href="javascript:;"
+										class="user-profile dropdown-toggle" data-toggle="dropdown"
+										aria-expanded="false"> <img
+											src="assets/images/img.png" alt="">
+										Operator<span class=" fa fa-angle-down"></span>
+									</a>
+										<ul class="dropdown-menu dropdown-usermenu pull-right">
+											
+		
+											<li><a href="#" id="log_out">Log
+													Out</a></li>
+										</ul></li>
+		
+									
+								</ul>
+								
+							</nav>
+						</div>
+					</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" style="margin-left: 0px;" role="main">
+
+
+				<div class="row">
+
+					<!-- div start-->
+
+					<div class="loading" style="display: none;">Loading&#8230;</div>
+<div class="x_panel">
+
+	<div class="x_content">
+
+		<!--<div class="col-md-12 col-sm-12 col-xs-12 form-group x_title">
+			<h4>Sales Order</h4>
+			
+		</div>
+-->
+		<div class="row"
+			style="border-bottom: 1px solid #eee; margin-bottom: 6px;">
+			<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+				<label for="fullname">Order No. </label> <input type="text"
+					placeholder="Order Number" class="form-control mousetrap" id="order_id"
+					disabled>
+			</div>
+			<div class="col-md-2 col-sm-12 col-xs-12 form-group ">
+				<label for="fullname">Date </label>
+				<div class="input-group date" id="sales_order_date">
+					<input type="text" class="form-control mousetrap" id="order_date" tabindex="-1"><span
+						class="input-group-addon"><span
+						class="glyphicon glyphicon-calendar"></span></span>
+				</div>
+
+			</div>
+
+
+			<!--<div class="col-md-4 col-sm-12 col-xs-12 form-group pull-right">
+<label for="vendername">Vendor Name :</label> <input
+list="vendor_list" name="search_vendor" type="text"
+	id="search_vendor" onkeyup="vendorSearch();" onchange=""
+		placeholder="Enter Vendor Name" class="form-control" autofocus>
+<datalist id="vendor_list">
+</datalist>
+<label id="vendor_name_error" style="color:red;display:none;">Please enter valid vendor name.<label>
+</div>-->
+			<div class="col-md-4 col-sm-12 col-xs-12 form-group pull-right">
+				<label for="customername">Customer Name</label> <input type="text"
+					placeholder="Enter Customer Name " class="form-control mousetrap" value="Customer"
+					id="customer_name" tabindex="-1"> <label id="customer_name_error"
+					style="color: red; display: none;">Please enter customer
+					name.<label>
+			</div>
+		</div>
+		<div class="row"
+			style="border-bottom: 1px solid #eee; margin-bottom: 6px;">
+
+			<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+				<label for="">Mostly Used Products/Items </label><br /> <Span
+					id="most_used_product"></span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+				<input list="search_items" name="search_items" type="text"
+					id="search_item" onchange=""
+					placeholder="Enter Product/Item Name *" class="form-control focus mousetrap" autofocus>
+				<datalist id="search_items">
+				</datalist>
+			</div>
+			<div class="col-md-2 col-sm-12 col-xs-12 form-group">
+				<button id="add" class="btn btn-primary btn-block btn-primary mousetrap"
+					type="button" tabindex="-1">Add Product/Item</button>
+			</div>
+			
+			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+				<span id="error_search" class="" style="color: red"></span>
+			</div>
+			<div class="col-md-1 col-sm-12 col-xs-12 form-group hide_part_of_billing hide_part_of_billing_print mousetrap">
+					<input id="print_order" type="checkbox" checked="checked" style="text-align: end;"  tabindex="-1"> Print
+				</div>
+			
+			<div class="col-md-3 col-sm-12 col-xs-12 form-group hide_part_of_billing"  >
+					
+					<span><button title="Finalise Sales Order"
+						class="btn btn-primary btn-block btn-danger mousetrap" type="button" onClick="fulfillment_order(1);"
+						id="fulfillment_sales_order" tabindex="-1">Finalise Order </button></span>
+			</div>
+		</div>
+		
+		<!--row close-->
+
+
+
+
+
+		<table class="table table-bordered table-hover" >
+			<thead>
+				<th width="3%">Action</th>
+				<th width="5%" style="display: none;">No</th>
+				<th width="5%" style="display: none;">Item ID</th>
+				<th width="35%">Product/Item</th>
+				<th width="10%">Available Quantity</th>
+				<th width="10%">Quantity</th>
+				<th width="10%">Rate</th>
+				<th width="10%">Amount</th>
+
+			</thead>
+			<tbody id="detail">
+			</tbody>
+			<tr class="hide_part_of_billing">
+				<th colspan="5" style="text-align: right;">Total Amount (INR)</th>
+				<th style="text-align: center;" class=""><b><input
+						class="form-control align_pull text-center input-sm sub_total mousetrap"
+						type="text" name="sub_total" value="0" disabled></b></th>
+			</tr>
+			<!--<tr class="hide_part_of_billing">
+	<th colspan="7" style="text-align: right;">Tax (INR)</th>
+	<th style="text-align: center;" class=""><b><input class="form-control align_pull text-center input-sm tax_amount mousetrap" type="text" name="tax_amount" value="0"></b></th>
+	</tr>
+	<tr class="hide_part_of_billing">
+	<th colspan="7" style="text-align: right;">Total Amount (INR)</th>
+	<th style="text-align: center;" class=""><b><input class="form-control align_pull text-center input-sm total mousetrap" type="text" name="total" value="0" disabled></b></th>
+	</tr>-->
+			<tr class="hide_part_of_billing">
+				<th colspan="5" style="text-align: right;">Received (INR)</th>
+				<th style="text-align: center;" class=""><b><input
+						class="form-control align_pull text-center input-sm paid_amount mousetrap"
+						type="text" name="paid_amount" value="0"
+						onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46 || event.which === 8"
+						value="0"></b></th>
+			</tr>
+			<tr class="hide_part_of_billing">
+				<th colspan="5" style="text-align: right;">Balance (INR)</th>
+				<th style="text-align: center;" class=""><b><input
+						class="form-control align_pull text-center input-sm balance mousetrap"
+						type="text" name="balance" value="0" disabled></b></th>
+			</tr>
+		</table>
+		<div class="row">
+			<span id="error_balance_amount" class="pull-left" style="color: red"></span>
+		</div>
+
+		<div class="row hide_part_of_billing">
+			<div class="col-md-5">
+				<label for="note">Order Note </label>
+				<textarea class="form-control order_note mousetrap" rows="3"
+					placeholder="Order Note"id="order_note" tabindex="-1"></textarea>
+
+			</div>
+			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
+				<label for="fullname">Payment Method * </label> <select
+					class="form-control mousetrap" id="payment_method" tabindex="-1">
+					<option value="0" selected>Cash</option>
+					<option value="1">Cheque</option>
+					<option value="2">Credit</option>
+					<option value="3">Online</option>
+					<option value="4">Other</option>
+				</select>
+			</div>
+			<!-- <div class="pull-right"> -->
+			<span id="show_fullfill_order">
+				<div class="col-md-2" style="margin-top: 20px;">
+					<button title="Next Product"
+						class="btn btn-primary btn-block btn-primary mousetrap" type="button"
+						id="temp_save_sales_order" tabindex="-1">Next Product/Item</button>
+				</div>
+				<div class="col-md-2" style="margin-top: 20px;">
+					<button title="Cancel"
+						class="btn btn-primary btn-block btn-primary cancel mousetrap" type="button"
+						id="cancel" tabindex="-1">Cancel</button>
+				</div>
+
+				
+				
+			</span> <span id="hide_fullfill_order" style="display: none;">
+
+
+
+				
+				<div class="col-md-2" style="margin-top: 20px;" id="close">
+					<button class="btn btn-primary btn-block btn-primary" type="button" tabindex="-1">Close</button>
+				</div>
+				<div class="col-md-2" style="margin-top: 20px;">
+					<button title="Print" class="btn btn-primary btn-block btn-primary"
+						id="print_button" onclick="PrintDiv();" tabindex="-1" >
+						<i class="fa fa-print"></i> Print
+					</button>
+				</div>
+
+				<div class="col-md-4" style="margin-top: 20px;">
+					<a href="POS_New_Order.html"
+				><button title="New Sales Order"
+						class="btn btn-primary btn-block" type="button"
+						id="new_order" tabindex="-1">Next Order</button></a>
+				</div>
+				
+			</span>
+			<!--</div>-->
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="sales_order_success_modal" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+	data-keyboard="false" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close close_modal" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Sales Order</h4>
+			</div>
+			<div class="modal-body">
+				<form data-parsley-validate class="form-horizontal form-label-left"
+					name="formdata" id="formdata">
+					<div class="x_content">
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+							<label style="font-size: 15px;">Your Sales Order has been
+								generated successfully.</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+							style="text-align: right">
+							<button type="button" class="btn btn-primary close_modal"
+								data-dismiss="modal">Ok</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="sales_order_confirmation_modal"
+	tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	data-backdrop="static" data-keyboard="false" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Sales Order
+					Confirmation</h4>
+			</div>
+			<div class="modal-body">
+				<form data-parsley-validate class="form-horizontal form-label-left"
+					name="formdata" id="formdata">
+					<div class="x_content">
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+							<label style="font-size: 15px;">Sales Order will be
+								finalized. Do you want to proceed?</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+							style="text-align: right">
+							<button type="button" class="btn btn-primary"
+								id="save_sales_order">Yes</button>
+							<button type="button" class="btn btn-primary"
+								data-dismiss="modal">No</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="modal fade" id="sales_order_stock_manage_modal"
+	tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	data-backdrop="static" data-keyboard="false" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header alert-danger">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel" style="color: #fff">Alert</h4>
+			</div>
+			<div class="modal-body">
+				<form data-parsley-validate class="form-horizontal form-label-left"
+					name="formdata" id="formdata">
+					<div class="x_content">
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+							<label style="font-size: 15px;">Product quantity out of
+								stock.</label>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group"
+							style="text-align: right">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+					
+					<!-- div end -->
+				</div>
+
+
+
+			</div>
+		</div>
+		<!-- /page content -->
+
+		<!-- footer content -->
+		<footer style="margin-left: 0px;">
+			<div class="pull-right">
+				&copy; 2017-18 Powered by <a href="https://corecotechnologies.com"
+					target="_blank">CoReCo Technologies</a>
+			</div>
+			<div class="clearfix"></div>
+		</footer>
+		<!-- /footer content -->
+	</div>
+	</div>
+
+
+
+
+<script type="text/javascript">
+
+Date.prototype.getCurrentTime = function()
+{
+return ((this.getHours() < 10)?"0":"") + ((this.getHours()>12)?(this.getHours()-12):this.getHours()) +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds() + ((this.getHours()>12)?(' PM'):' AM');
+};
+	var unit_name_for_print = '<?php echo $unit_name?>';
+	var company_name_for_print = '<?php echo $company_name ?>';
+
+function PrintDiv() {
+
+				
+var today = new Date(); //date object
+
+var currenttime = today.getCurrentTime();
+		
+		
+		var order_id = $('#order_id').val();
+		var order_date = $('#order_date').val();
+		//var order_note = $('textarea').val();    //$(".order_note").text();
+		//var payment_method = $('#payment_method').val();
+		var total_wholesale_amount = $('.sub_total').val();
+		var paid_amt = $(".paid_amount").val();
+		var balance = $(".balance").val();
+		var vendor_name = $('#customer_name').val();
+		
+		var rows = '';
+		rows = '<html><body><div style="width:200px;">';
+				
+				//popupWin.document.write('<br><br>Hello Bakers <br/>'); 
+		/*rows += '<div style= "text-align:left; font-size:10"><b><h3>'
+						+ company_name_for_print
+						+ ' - '
+						+ unit_name_for_print
+						+ '</h3></b></div>';*/
+		rows += '<p style="font-size:14">Order No : ' + order_id+'</p>';
+		rows += '<p style="font-size:14">Date-' + order_date +' '+currenttime+ '</p>';
+		rows += '<br/><b style="font-size:12">Name : ' + vendor_name + '</b><br/><br/>';
+
+		rows += '<table style="font-size:14;" width="100%"><thead><th width="30%">Item</th><th width="20%">Qty</th><th width="20%">Rate</th><th width="20%">Price</th></thead>';
+                var itemcount = 0;
+		$('#detail tr').each(
+				function(row, tr) {
+					itemcount++;
+					rows += '<tr><td>'
+							+ $(tr).find('td:eq(3)').text().slice(0, 10) + '</td><td>'
+							+ $(tr).find('.quantity').val() + '</td><td style="text-align: right;"> '
+							+ $(tr).find('.price').val() + ' </td><td style="text-align: right;"> '
+							+ $(tr).find('.amount').val() + ' </td>'
+							;
+				});
+
+		rows += '<tr><th colspan="3" style="text-align: right;">Total (&#x20b9;)</th> <td>'
+						+ total_wholesale_amount
+						+ '</td></tr></table>';
+		
+		rows += '<br/>No of items : ' + itemcount + '<br/>';
+		
+		rows += '<p style="text-align:center;font-size:13px">Thanking You, Visit again.</p>';
+		rows += '<p style="text-align:center;font-size:14px"><b>CoBakers.com</b></p><br/>';
+		
+		//popupWin.document.write('</div><br/><br/><br/>--Welcome To CoBakers--');
+		rows += '</div></body></html>';
+
+		window.frames["print_frame"].document.body.innerHTML=rows;
+                window.frames["print_frame"].window.focus();
+                window.frames["print_frame"].window.print();
+		$('.loading').hide();
+}
+</script>
+
+
+
+
+
+
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+
+<!-- <div id="divToPrint" style="display: none;">
+	<div style="width: 200px; height: 300px; background-color: teal;">
+		<?php echo $html; ?>
+	</div>
+</div> -->
+
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+
+
+
+<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script> -->
+<!--<script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>-->
+<script src="assets/jquery/jquery-2.2.3.min.js"></script>
+<script
+	src='assets/js/mousetrap.min.js'></script>
+
+<script type="text/javascript">
+	for(let i = 0; i < localStorage.length; i++)
+				{
+					let key = localStorage.key(i);
+					//let value = localStorage.getItem(key);
+					var company_id = localStorage.getItem("company_id");
+					var unit_id = localStorage.getItem("unit_id");
+					var user_no = localStorage.getItem("phone_no");
+					
+															
+				}
+				
+	// var unit_guid = '<?php echo $unit_guid; ?>';
+	
+	function update_item_stock(item_id,item_quantity)
+	{
+		transaction = db.transaction("items","readwrite")
+																var store = transaction.objectStore("items");
+																//var cursor = store.openCursor();
+
+
+																 store.openCursor().onsuccess = function(event) 
+																 {
+																	var cursor = event.target.result;
+																	if(cursor) 
+																	{
+																		
+																				//alert(item_details[i].item_id);
+																				
+																				if(cursor.value.item_id === item_id) 
+                                                                                {
+                                                                                
+                                                                                    var old_quantity = cursor.value.item_stock;
+                                                                                    var new_mostly_count = cursor.value.mostly_used_count;
+                                                                                    var new_quantity = parseFloat(old_quantity) - parseFloat(item_quantity);
+                                                                                    var updateData = cursor.value;
+
+                                                                                    var product_count = new_mostly_count + 1;
+                                                                                    
+                                                                                    updateData.item_stock = new_quantity;
+                                                                                    updateData.mostly_used_count = product_count;
+                                                                                    var request = cursor.update(updateData);
+                                                                                    request.onsuccess = function() 
+                                                                                    {
+                                                                                        console.log("Item Quantity Updated");
+                                                                                        console.log("Item Used Count Updated");
+
+                                                                                        //cursor.continue();
+                                                                                    };
+                                                                                    request.onerror = function()
+                                                                                    {
+                                                                                        console.log("Item Quantity Not Updated"); 
+                                                                                        console.log("Item Used Count Not Updated");
+                                                                                        
+                                                                                        
+                                                                                    };
+                                                                                    //cursor.continue(); 
+                                                                                    
+                                                                                };
+																				cursor.continue();   
+																		
+																	}
+																 };
+	}
+	
+
+	// //alert(count)
+	// var timer, value;
+	var check_order_flag = 0;
+	var db;
+	var transaction;
+	var short_key_flag = -1;
+	function increment_alphanumeric_str(str)
+								{ 
+									var numeric = str.match(/\d+$/)[0]; 
+									var prefix = str.split(numeric)[0]; 
+									function increment_string_num(str)
+									{
+										 var inc = String(parseInt(str)+1);
+										  return str.slice(0, str.length-inc.length)+inc; 
+									} 
+										return prefix+increment_string_num(numeric); 
+
+									
+								}
+
+	$(function() 
+	{
+		Date.prototype.getCurrentTime = function()
+{
+return ((this.getHours() < 10)?"0":"") + ((this.getHours()>12)?(this.getHours()-12):this.getHours()) +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds() + ((this.getHours()>12)?(' PM'):' AM');
+};
+		
+
+		setInterval(function() {
+			if(navigator.onLine)
+			{
+				$('.online_led').show();
+				$('.offline_led').hide();
+			}
+			else
+			{
+				$('.online_led').hide();
+				$('.offline_led').show();
+			}
+		}, 500); // 500 milliseconds
+
+		
+		
+ // Trimmed string
+		
+		if(localStorage.length > 0)
+			{
+				console.log("Session Present");	
+				for(let i = 0; i < localStorage.length; i++)
+							{
+								let key = localStorage.key(i);
+								//let value = localStorage.getItem(key);
+								var company_id = localStorage.getItem("company_id");
+								var unit_id = localStorage.getItem("unit_id");
+								
+																		
+							}										
+			}
+		else
+			{
+				console.log("Session Not Present");
+				location.href ='Login.html';
+			}
+
+		window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+                
+                var request = window.indexedDB.open("CoBakers", 1);
+
+                request.onerror = function(e)
+                {
+                        console.log("error: ");
+                };
+
+
+                request.onsuccess = function(e)
+                {
+						db = request.result;
+						//alert("hii");
+                        console.log('Got a db connection! It is %s', db);
+                };
+
+                request.onupgradeneeded = function(e)
+                {
+                        db = e.target.result;
+                        if(!db.objectStoreNames.contains('sales_order'))
+                        {
+                                var os = db.createObjectStore("sales_order", {keyPath: "id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("order_id", "order_id", { unique: true });
+                        }
+
+                        if(!db.objectStoreNames.contains('items'))
+                        {
+                                var os = db.createObjectStore("items", {keyPath: "item_id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("item_id", "item_id", { unique: true });
+                        }
+
+						if(!db.objectStoreNames.contains('user_details'))
+                        {
+                                var os = db.createObjectStore("user_details", {keyPath: "phone_no", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("phone_no", "phone_no", { unique: true });
+						}
+						if(!db.objectStoreNames.contains('order_id_details'))
+                        {
+                                var os = db.createObjectStore("order_id_details", {keyPath: "order_id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("order_id", "order_id", { unique: true });
+                        }
+						if(!db.objectStoreNames.contains('order_log'))
+                        {
+                                var os = db.createObjectStore("order_log", {keyPath: "order_id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("order_id", "order_id", { unique: true });
+                        }
+						if(!db.objectStoreNames.contains('pull_products_log'))
+                        {
+                                var os = db.createObjectStore("pull_products_log", {keyPath: "id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("id", "id", { unique: false });
+                        }
+						if(!db.objectStoreNames.contains('push_orders_log'))
+                        {
+                                var os = db.createObjectStore("push_orders_log", {keyPath: "id", autoIncrement:true});
+                                // Create Index for name
+                                //  os.createIndex('name','name',{unique:false});
+                                os.createIndex("id", "id", { unique: true });
+                        }
+
+
+				}
+
+					setTimeout(function(){
+						transaction = db.transaction("items","readonly")
+													var store = transaction.objectStore("items");
+													var cursor = store.openCursor();
+
+													cursor.onsuccess = function(e)
+													{
+														var res = e.target.result;
+														if(res)
+														{
+															
+															var local_company_id = res.value.company_id;
+															var local_unit_id = res.value.unit_id;
+															//console.log(item_id, item_name);	
+															if(local_company_id == company_id && local_unit_id == unit_id)
+															{
+																var item_id = res.value.item_id;
+																var item_name = res.value.item_name;
+																var barcode_id = res.value.barcode_id;
+																$("#search_items").append("<option data-id='"+ item_id +"' data-value='"+barcode_id+"'>" + item_name + "</option>");
+																
+															}
+															res.continue();
+															
+														}
+													}
+												},1000);
+
+/*********************** Start code for get rcently used product *************************/
+setTimeout(function(){
+        transaction = db.transaction("items","readonly")
+            var store = transaction.objectStore("items");
+            var cursor = store.openCursor();
+            var mostly_used_array = [];
+
+            cursor.onsuccess = function(e)
+            {
+                var res = e.target.result;
+                if(res)
+                {
+                    
+                    var local_company_id = res.value.company_id;
+                    var local_unit_id = res.value.unit_id;
+                    var mostly_used_count = res.value.mostly_used_count;
+                    
+                    //console.log(item_id, item_name);  
+                    if(local_company_id == company_id && local_unit_id == unit_id && mostly_used_count != 0)
+                    {
+                        var item_id = res.value.item_id;
+                        var item_name = res.value.item_name;
+                        
+                        
+                        var most_item_details = 
+                        {
+                            'item_id' : item_id,
+                            'item_name' : item_name,
+                            'mostly_used_count' : mostly_used_count
+                        }
+
+                        mostly_used_array.push(most_item_details);
+                    }
+                    res.continue();
+                    
+                }
+                else
+                {
+					var result = mostly_used_array.sort(function(a, b) {
+						return parseFloat(a.mostly_used_count) - parseFloat(b.mostly_used_count);  
+					});
+					var mostly_used_product_array = result.slice(-10);
+					
+					console.log(mostly_used_product_array)
+					short_key_flag =mostly_used_product_array.length;
+					if (mostly_used_product_array.length > 0) {
+							var k=0;
+							for (var i = 0; i < mostly_used_product_array.length; i++) {
+								var product_id = mostly_used_product_array[i].item_id;
+								var product_name = mostly_used_product_array[i].item_name;
+								k++;
+								if(k == 10)
+									k=0;
+								$("#most_used_product")
+										.append(
+												'<a onClick="get_details_of_product('
+														+ product_id
+														+ ')" id="product_most_used'
+														+ product_id
+														+ '" class="btn btn-info btn-sm short_code_product short_code_product'+k+'" style="margin-bottom: 1%;" tabindex="-1">'
+														+ product_name + '</a>');
+							}
+						}
+                }
+            }
+		},1000);
+		/*********************** End code for get rcently used product *************************/		
+
+
+//testing code
+
+
+
+					setTimeout(function()
+					{
+						var transaction = db.transaction("order_id_details","readwrite");
+						var store = transaction.objectStore("order_id_details");
+						//var cursor = store.openCursor();
+						
+
+						
+						var text = "";
+						var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+						for (var i = 0; i < 7; i++)
+							text += possible.charAt(Math.floor(Math.random() * possible.length));	
+						
+						//alert(text);	
+						var new_order_id = company_id+unit_id+text+'00001';
+
+
+						
+
+						var index = store.index('order_id');
+						var openCursorRequest = index.openCursor(null, 'prev');
+						var maxRevisionObject = null;
+
+						openCursorRequest.onsuccess = function (event) {
+							if (event.target.result) 
+							{
+								maxRevisionObject = event.target.result.value; //the object with max revision
+								//console.log(maxRevisionObject);
+
+								var local_company_id = maxRevisionObject.company_id;
+								var local_unit_id = maxRevisionObject.unit_id;
+								var order_id = maxRevisionObject.order_id;
+								// console.log(local_company_id);
+								// console.log(company_id);
+								// console.log(local_unit_id);
+								// console.log(unit_id);
+
+															//console.log(item_id, item_name);	
+								// if(local_company_id == company_id && local_unit_id == unit_id)
+								// 	{
+
+								// 		alert('hi');
+
+										//var data = JSON.parse(maxRevisionObject);;
+								//var data =  jQuery.parseJSON(JSON.stringify(maxRevisionObject));
+
+								var auto_id = order_id;
+
+								var split_id = auto_id.split("-");
+								split_id.shift() ;
+								split_id.join("-");
+								//console.log(s[1]);
+								var temp_id = split_id[1];
+
+								var new_temp_id = increment_alphanumeric_str(temp_id);
+								var new_order_id = company_id+'-'+unit_id+'-'+new_temp_id;
+
+								$('#order_id').val(new_order_id);
+
+
+							// 		}
+							// 		else
+							// 		{
+							// 			var new_order_id = company_id+'-'+unit_id+'-'+text+'00001';
+							// 			$('#order_id').val(new_order_id);
+							// 		}
+
+
+							// event.target.result.continue();	
+								
+							}
+							else
+							{
+								var new_order_id = company_id+'-'+unit_id+'-'+text+'00001';
+								$('#order_id').val(new_order_id);
+							}
+						};
+						
+						
+
+						
+					},1000);
+
+
+
+						
+
+				//products();
+		
+													
+													
+		
+		Mousetrap.bind(['f2'], function() { 
+			$('#fulfillment_sales_order').click();
+		 });
+		 Mousetrap.bind(['ctrl+a'], function() {
+			$('#new_order').click();
+		 });
+		 Mousetrap.bind(['ctrl+b'], function() {
+			window.history.back();
+		 });
+		 
+		 Mousetrap.bind(['alt+1','alt+2','alt+3','alt+4','alt+5','alt+6','alt+7','alt+8','alt+9','alt+0'], function(e) {
+			if(e.key==1)
+			 	$('.short_code_product1').click();
+			else if(e.key==2)
+			 	$('.short_code_product2').click();
+			else if(e.key==3)
+			 	$('.short_code_product3').click();
+			else if(e.key==4)
+			 	$('.short_code_product4').click();
+			else if(e.key==5)
+			 	$('.short_code_product5').click();
+			else if(e.key==6)
+			 	$('.short_code_product6').click();
+			else if(e.key==7)
+			 	$('.short_code_product7').click();
+			else if(e.key==8)
+			 	$('.short_code_product8').click();
+			else if(e.key==9)
+			 	$('.short_code_product9').click();
+			else if(e.key==0)
+			 	$('.short_code_product0').click();
+			else 
+				console.log("Sorry no more product");
+		});
+	
+		
+				
+	//	$('.loading').show();
+		$('#close').hide();
+		
+		
+		
+		$('#new_order').click(function()
+        {
+			location.reload();
+		});
+
+		$('#cancel').click(function()
+		{
+			window.history.back();
+		});
+
+		$('#close').click(function()
+		{
+			window.history.back();
+		});
+
+		$('#log_out').click(function()
+            {
+				//alert('hi');
+				localStorage.clear();
+
+				// redirect to login page
+				location.href ='Login.html';
+			});
+		
+		
+			$("#search_item").keyup(function(event) {
+			if (event.keyCode === 13) {
+				$("#add").click(); // call add click function
+			}
+		});
+		
+		
+		
+		$("#search_item").click(function() {
+			if (event.keyCode === 13) {
+				$("#add").click(); // call add click function
+			}
+			
+		});
+		/*************** end code for searched item add in sales order list on enter button press **********************/
+		
+		$('#temp_save_sales_order').click(function() {
+			$('#search_item').focus();
+		});
+
+		/*************** start code for searched item add in sales order list **********************/
+		$('#add')
+				.click(
+						function() {
+							
+						$('#error_search').html();	
+						if($('#search_item').val() != '')
+						{
+							//$('.loading').show();
+							var selected_id;
+							if(isNaN($('#search_item').val()) == false){
+								
+								selected_id = $('#search_item').val();
+								var selected_flag = 1; 
+							}
+							if(isNaN($('#search_item').val()) == true)
+							{
+								selected_id= $('#search_items option').filter(
+											function() {
+												return $('#search_item').val() == this.value;
+											}).data("id");  // get data-id of selected item from datalist
+								var selected_flag = 2;
+							}	
+
+
+
+
+							var keyRangeValue = IDBKeyRange.only("100");
+                            
+							var transaction = db.transaction(["items"], "readonly");
+							var objectStore = transaction.objectStore("items");
+							 
+							
+							
+								
+								var cursor = objectStore.openCursor();
+							 
+							cursor.onsuccess = function(e) {
+								var res = e.target.result;
+								if(res) {
+									//console.log("Key", res.key);
+								   // console.log("Data", res.value.product_id);
+									if(selected_flag == 2)
+									{
+										var item_id = res.value.item_id;
+										if(item_id == selected_id)
+										{
+											$(".hide_part_of_billing").show();
+											$('#error_search').hide();
+											var item_name = res.value.item_name;
+											var item_price = res.value.item_retail_price;
+											var item_stock = res.value.item_stock;
+											var barcode_id = res.value.barcode_id;
+											/*if(barcode_id == ""){
+												return false;
+												
+											}*/
+												
+											var product_qty_class = 'pro_qty'
+													+ item_id;
+
+											//var product_balance_quantity = data[i].product_stock;
+
+											var n = ($('#detail tr').length - 0) + 1;
+											var tr = '<tr>'
+													+ '<td><button title="delete" class="btn btn-xs btn-danger remove" type="button" tabindex="-1"><i class="glyphicon glyphicon-trash"></i></button></td>'
+													+ '<td class="no" style="display:none;">'
+													+ n
+													+ '</td>'
+													+ '<td class="" style="display:none;">'
+													+ item_id
+													+ '</td>'
+													+ '<td>'
+													+ item_name
+													+ '</td>'
+													+ '<td class="">'
+													+ item_stock
+													+ '</td>'
+													+ '<td class="check_valid_quantity"><input class="form-control text-center input-sm focus align_pull quantity '+product_qty_class+' mousetrap" data-id="'+item_stock+'" id="product_quantity'+n+'" type="text" name="quantity" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46 || event.which === 8">'
+													+
+
+													//'<td class="check_valid_quantity"><input class="form-control text-center input-sm quantity" id="product_quantity'+n+'" type="text" name="quantity" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46" autofocus>'+
+													'<td><input class="form-control text-center input-sm align_pull price" type="text" name="rate" id="product_price'+n+'" value="'+item_price+'" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46" disabled>'
+													+
+
+													'<td><input type="text" class="form-control input-sm align_pull amount" id="product_amount'+n+'" name="amount" value="0" disabled></td>'
+													+ '</tr>';
+											$('#detail').prepend(tr);
+											$('.quantity').keyup();
+											$('#search_item').focus();
+											$('#search_item').val('');
+											//$("#search_items").html('');
+											console.log(item_name)
+												
+										}
+											//$('.loading').hide();
+										
+									}
+									else if(selected_flag==1)
+									{
+										var barcode_id = res.value.barcode_id;
+										if(barcode_id == selected_id)
+										{
+											$(".hide_part_of_billing").show();
+											$('#error_search').hide();
+											var item_name = res.value.item_name;
+											var item_price = res.value.item_retail_price;
+											var item_stock = res.value.item_stock;
+											var barcode_id = res.value.barcode_id;
+											/*if(barcode_id == ""){
+												return false;
+												
+											}*/
+												
+											var product_qty_class = 'pro_qty'
+													+ item_id;
+
+											//var product_balance_quantity = data[i].product_stock;
+
+											var n = ($('#detail tr').length - 0) + 1;
+											var tr = '<tr>'
+													+ '<td><button title="delete" class="btn btn-xs btn-danger remove" type="button" tabindex="-1"><i class="glyphicon glyphicon-trash"></i></button></td>'
+													+ '<td class="no" style="display:none;">'
+													+ n
+													+ '</td>'
+													+ '<td class="" style="display:none;">'
+													+ item_id
+													+ '</td>'
+													+ '<td>'
+													+ item_name
+													+ '</td>'
+													+ '<td class="">'
+													+ item_stock
+													+ '</td>'
+													+ '<td class="check_valid_quantity"><input class="form-control text-center input-sm focus align_pull quantity '+product_qty_class+' mousetrap" data-id="'+item_stock+'" id="product_quantity'+n+'" type="text" name="quantity" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46 || event.which === 8">'
+													+
+
+													//'<td class="check_valid_quantity"><input class="form-control text-center input-sm quantity" id="product_quantity'+n+'" type="text" name="quantity" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46" autofocus>'+
+													'<td><input class="form-control text-center input-sm align_pull price" type="text" name="rate" id="product_price'+n+'" value="'+item_price+'" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46" disabled>'
+													+
+
+													'<td><input type="text" class="form-control input-sm align_pull amount" id="product_amount'+n+'" name="amount" value="0" disabled></td>'
+													+ '</tr>';
+											$('#detail').prepend(tr);
+											$('.quantity').keyup();
+											$('#search_item').focus();
+											$('#search_item').val('');
+											//$("#search_items").html('');
+											console.log(item_name)
+												
+										}
+									}
+									res.continue();
+								}
+							};
+						}
+					});
+
+		/*************** end code for searched item add in sales order list **********************/
+
+		/*************** start code for delete item from sales order list **********************/
+		$('body').delegate('.remove', 'click', function() {
+			
+			$(this).parent().parent().remove();
+			total();
+		});
+		/*************** end code for delete item from sales order list **********************/
+
+		/*************** start code for tax calculate item from sales order list **********************/
+		$('body').delegate('.tax_amount', 'keyup', function() {
+			//tax_calculate();
+		});
+		/*************** end code for tax calculate item from sales order list **********************/
+
+		$('body')
+				.delegate(
+						'.quantity',
+						'keyup',
+						function() {
+							var tr = $(this).parent().parent();
+							var product_quantity = parseFloat($(this)
+									.data("id"));
+							var quantity = parseFloat($(this).val());
+							var id = "pro_qty" + $(tr).find('td:eq(2)').text();
+							var sum = 0;
+							$("." + id).each(function() {
+								sum += +$(this).val();
+							});
+							var current_qua = product_quantity
+									- (sum - quantity);
+							//alert(product_quantity)
+							if (product_quantity >= sum) {
+								tr.find('.check_valid_quantity').find(".error")
+										.remove();
+							} else {
+								tr.find('.check_valid_quantity').find(".error")
+										.remove();
+								tr
+										.find('.check_valid_quantity')
+										.append(
+												"<span class='error' style='color:red;'>Insufficient Stock<span>");
+								return false;
+							}
+						});
+
+		$('body')
+				.delegate(
+						'.discount',
+						'keyup',
+						function() {
+							var tr = $(this).parent().parent();
+							var discount = $(this).val();
+							if (discount == '') {
+								discount = 0;
+							}
+							if (parseFloat(discount) < 100) {
+								tr.find('.check_valid_discount').find(".error")
+										.remove();
+							} else {
+								tr.find('.check_valid_discount').find(".error")
+										.remove();
+								tr
+										.find('.check_valid_discount')
+										.append(
+												"<span class='error' style='color:red;'>Discount must be less than 100 %.<span>");
+								return false;
+							}
+						});
+
+		/*************** start code for calculate balance from sales order list **********************/
+		$('body').delegate('.paid_amount', 'keyup', function() {
+			balance_calculate();
+		});
+		/*************** end code for calculate balance from sales order list **********************/
+
+		/*************** start code for calculate total amount of item with discount from sales order list **********************/
+		$('body').delegate('.quantity,.price,.discount', 'keyup', function() {
+
+			var tr = $(this).parent().parent();
+			var qty = tr.find('.quantity').val();
+
+			var price = tr.find('.price').val();
+			//var dis=tr.find('.discount').val();
+			var amt = qty * price;
+			tr.find('.amount').val(amt.toFixed(2));
+			total();
+		});
+		/*************** end code for calculate total amount of item with discount from sales order list **********************/
+
+		
+
+		$(".close_modal").click(function(e) {
+			//location.reload();
+			//location.href= base_url+'Sale_order_listing/index/'+unit_guid;
+			document.getElementById("print_button").disabled = false;
+			document.getElementById("save_sales_order").disabled = true;
+			document.getElementById("cancel").disabled = true;
+
+			document.getElementById("customer_name").disabled = true;
+			document.getElementById("order_date").disabled = true;
+			document.getElementById("search_item").disabled = true;
+			document.getElementById("most_used_product").disabled = true;
+
+			$('#close').show();
+
+			$(".remove").prop("disabled", true);
+
+			$(".quantity").prop("disabled", true);
+			$(".payment_method").prop("disabled", true);
+			$(".discount").prop("disabled", true);
+
+			$("input[type=text]").attr('disabled', true);
+			$("textarea").prop('disabled', true);
+			document.getElementById("payment_method").disabled = true;
+
+			$('#most_used_product').hide();
+			$('#show_fullfill_order').hide();
+			$('.hide_part_of_billing_print').hide();
+			$('#hide_fullfill_order').show();
+
+		});
+		
+	
+		/********************* start code for prevent event when the modal is about to hide ************************/
+		$('#sales_order_success_modal').on('hide.bs.modal', function(e) {
+			//e.preventDefault();
+			//e.stopPropagation();
+			//return false;
+			$('.close_modal').click(function() {
+
+				$('#sales_order_success_modal').modal('hide');
+			});
+		});
+		/********************* end code for prevent event when the modal is about to hide ************************/
+	});
+
+	function get_details_of_product(id) {
+
+		var selected_id = id;
+
+		var keyRangeValue = IDBKeyRange.only("100");
+                            
+							var transaction = db.transaction(["items"], "readonly");
+							var objectStore = transaction.objectStore("items");
+								
+								var cursor = objectStore.openCursor();
+							 
+							cursor.onsuccess = function(e) {
+								var res = e.target.result;
+								if(res) {
+									
+										var item_id = res.value.item_id;
+										if(item_id == selected_id)
+										{
+											$(".hide_part_of_billing").show();
+											$('#error_search').hide();
+											var item_name = res.value.item_name;
+											var item_price = res.value.item_retail_price;
+											var item_stock = res.value.item_stock;
+											var barcode_id = res.value.barcode_id;
+											
+												
+											var product_qty_class = 'pro_qty'
+													+ item_id;
+
+											var n = ($('#detail tr').length - 0) + 1;
+											var tr = '<tr>'
+													+ '<td><button title="delete" class="btn btn-xs btn-danger remove" type="button" tabindex="-1"><i class="glyphicon glyphicon-trash"></i></button></td>'
+													+ '<td class="no" style="display:none;">'
+													+ n
+													+ '</td>'
+													+ '<td class="" style="display:none;">'
+													+ item_id
+													+ '</td>'
+													+ '<td>'
+													+ item_name
+													+ '</td>'
+													+ '<td class="">'
+													+ item_stock
+													+ '</td>'
+													+ '<td class="check_valid_quantity"><input class="form-control text-center input-sm focus align_pull quantity '+product_qty_class+' mousetrap" data-id="'+item_stock+'" id="product_quantity'+n+'" type="text" name="quantity" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.keyCode == 46 || event.which === 8">'
+													+
+													'<td><input class="form-control text-center input-sm align_pull price" type="text" name="rate" id="product_price'+n+'" value="'+item_price+'" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46" disabled>'
+													+
+
+													'<td><input type="text" class="form-control input-sm align_pull amount" id="product_amount'+n+'" name="amount" value="0" disabled></td>'
+													+ '</tr>';
+											$('#detail').prepend(tr);
+											$('.quantity').keyup();
+											$('#search_item').focus();
+											$('#search_item').val('');
+											//$("#search_items").html('');
+											console.log(item_name)
+												
+										}
+											//$('.loading').hide();
+										
+									
+									res.continue();
+								}
+							};
+	}
+
+
+
+
+
+
+
+
+
+	/****************onclick fulfillment_order($) funnction ****************************/
+	
+		
+						function fulfillment_order() 
+						{
+							
+							if(check_order_flag == 0)
+							{
+							//$('.loading').show();
+							check_order_flag = 1;
+							$('#error_balance_amount').html('');
+							$('#customer_name_error').hide();
+							$('.error').remove();
+							var Order_details = new Array();
+							var check_for_quantity = true;
+							var check_for_vender_id = true;
+
+							var order_id = $('#order_id').val();
+							var order_date = $('#order_date').val();
+
+							var customer_name = $('#customer_name').val();
+							if (customer_name == '') {
+								$('#customer_name_error').show();
+								//$('.loading').hide();
+								check_order_flag = 0;
+								return false;
+							}
+							
+							$('#detail tr')
+									.each(
+											function(row, tr) {
+
+												var check_available_quantity = parseFloat($(
+														tr).find('.quantity')
+														.data("id"));
+												var check_user_quantity = parseFloat($(
+														tr).find('.quantity')
+														.val());
+												var id = "pro_qty"
+														+ $(tr)
+																.find(
+																		'td:eq(2)')
+																.text();
+												var sum = 0;
+												$("." + id).each(function() {
+													sum += +$(this).val();
+												});
+												var current_qua = check_available_quantity
+														- (sum - check_user_quantity);
+
+												if (check_user_quantity) {
+													$(tr)
+															.find(
+																	'.check_valid_quantity')
+															.find(".error")
+															.remove();
+
+													if (check_available_quantity >= sum) {
+														$(tr)
+																.find(
+																		'.check_valid_quantity')
+																.find(".error")
+																.remove();
+
+														Order_details[row] = {
+															"item_id" : $(tr)
+																	.find(
+																			'td:eq(2)')
+																	.text(),
+															"item_name" : $(tr)
+																	.find(
+																			'td:eq(3)')
+																	.text(),
+															"item_quantity" : $(
+																	tr)
+																	.find(
+																			'.quantity')
+																	.val(),
+															"item_price" : $(tr)
+																	.find(
+																			'.price')
+																	.val(),
+															"item_amount" : $(
+																	tr).find(
+																	'.amount')
+																	.val()
+														}
+
+														check_for_quantity = true;
+
+													} else {
+														$(tr)
+																.find(
+																		'.check_valid_quantity')
+																.find(".error")
+																.remove();
+														$(tr)
+																.find(
+																		'.check_valid_quantity')
+																.append(
+																		"<span class='error' style='color:red;'>Insufficient Stock<span>");
+														return check_for_quantity = false;
+													}
+
+												} else {
+													$(tr).find('.quantity')
+															.focus();
+													$(tr)
+															.find(
+																	'.check_valid_quantity')
+															.find(".error")
+															.remove();
+													$(tr)
+															.find(
+																	'.check_valid_quantity')
+															.append(
+																	"<span class='error' style='color:red;'>Please enter quantity.<span>");
+													return check_for_quantity = false;
+												}
+
+											});
+							if (check_for_quantity != true) {
+								//$('.loading').hide();
+								check_order_flag = 0;
+								return check_for_quantity;
+							}
+
+							var order_note = $('textarea').val();//$('#order_note').text();
+
+							var payment_method = $('#payment_method').val();
+							var total_amount = $('.sub_total').val();
+							var paid_amt = $(".paid_amount").val();
+							var balance = parseFloat($(".balance").val());
+
+							if (balance < 0) {
+								var x = -balance;
+								var new_amt = paid_amt - x;
+								$('#error_balance_amount')
+										.html(
+												'Please refund amount Rs. '
+														+ x.toFixed(2)
+														+ '. Enter "Received Amount" = Rs. '
+														+ new_amt.toFixed(2)
+														+ ' to proceed.');
+								//$('.loading').hide();
+								check_order_flag = 0;
+								return false;
+							}
+
+							if (Order_details.length < 1) {
+								$('#error_balance_amount').html(
+										'Please add atleast one product.');
+								//$('.loading').hide();
+								check_order_flag = 0;
+								return false;
+							}
+
+							//$('.loading').hide();
+							
+							save_sales_order();
+							}
+						}
+	
+	/****************onclick fulfillment_order($) funnction ****************************/
+	
+	
+		/***************start code for save order ************************/
+		
+						function save_sales_order() {
+							
+							
+							$('#error_balance_amount').html('');
+							$('#customer_name_error').hide();
+							$('.error').remove();
+							var Order_details = new Array();
+							var check_for_quantity = true;
+							var check_for_vender_id = true;
+							
+							var order_id = $('#order_id').val();
+							
+							var order_date = $('#order_date').val();
+							order_date = moment(order_date, "DD-MM-YYYY")
+									.format("YYYY-MM-DD");
+							
+							var customer_name = $('#customer_name').val();
+							if (customer_name == '') {
+								$('#customer_name_error').show();
+								
+								return false;
+							}
+							$('#detail tr')
+									.each(
+											function(row, tr) {
+
+												var check_available_quantity = parseFloat($(
+														tr).find('.quantity')
+														.data("id"));
+												var check_user_quantity = parseFloat($(
+														tr).find('.quantity')
+														.val());
+												var id = "pro_qty"
+														+ $(tr)
+																.find(
+																		'td:eq(2)')
+																.text();
+																
+												var sum = 0;
+												$("." + id).each(function() {
+													sum += +$(this).val();
+												});
+												var current_qua = check_available_quantity
+														- (sum - check_user_quantity);
+
+												if (check_user_quantity) {
+													$(tr)
+															.find(
+																	'.check_valid_quantity')
+															.find(".error")
+															.remove();
+
+													if (check_available_quantity >= sum) {
+														$(tr)
+																.find(
+																		'.check_valid_quantity')
+																.find(".error")
+																.remove();
+
+														Order_details[row] = {
+															"item_id" : $(tr)
+																	.find(
+																			'td:eq(2)')
+																	.text(),
+															"item_name" : $(tr)
+																	.find(
+																			'td:eq(3)')
+																	.text(),
+															"item_quantity" : $(
+																	tr)
+																	.find(
+																			'.quantity')
+																	.val(),
+															"item_price" : $(tr)
+																	.find(
+																			'.price')
+																	.val(),
+															"item_amount" : $(
+																	tr).find(
+																	'.amount')
+																	.val()
+														}
+
+														check_for_quantity = true;
+
+													} else {
+														$(tr)
+																.find(
+																		'.check_valid_quantity')
+																.find(".error")
+																.remove();
+														$(tr)
+																.find(
+																		'.check_valid_quantity')
+																.append(
+																		"<span class='error' style='color:red;'>Insufficient Stock<span>");
+														return check_for_quantity = false;
+													}
+
+												} else {
+													$(tr).find('.quantity')
+															.focus();
+													$(tr)
+															.find(
+																	'.check_valid_quantity')
+															.find(".error")
+															.remove();
+													$(tr)
+															.find(
+																	'.check_valid_quantity')
+															.append(
+																	"<span class='error' style='color:red;'>Please enter quantity.<span>");
+													return check_for_quantity = false;
+												}
+
+											});
+										
+							if (check_for_quantity != true) {
+								
+								return check_for_quantity;
+							}
+
+							$('#sales_order_confirmation_modal').modal('hide');
+							var order_note = $('textarea').val();//$('#order_note').text();
+
+							var payment_method = $('#payment_method').val();
+							var total_amount = $('.sub_total').val();
+							var paid_amt = $(".paid_amount").val();
+							var balance = parseFloat($(".balance").val());
+
+							if (balance < 0) {
+								var x = -balance;
+								var new_amt = paid_amt - x;
+								$('#error_balance_amount')
+										.html(
+												'Please refund amount Rs. '
+														+ x.toFixed(2)
+														+ '. Enter "Received Amount" = Rs. '
+														+ new_amt.toFixed(2)
+														+ ' to proceed.');
+								
+								return false;
+							}
+						
+							
+							
+
+
+
+													
+
+							
+
+							
+
+
+							var order_item = JSON.stringify(Order_details);
+							var item_details = Order_details;
+
+							
+
+							for(var i=0; i<item_details.length; i++)
+																		{
+																				//alert(item_details[i].item_id);
+																				var item_id = item_details[i].item_id;
+																				var item_quantity = item_details[i].item_quantity;
+																				
+																				update_item_stock(item_id,item_quantity);
+																		}
+						
+
+															
+							// Define customer
+
+						
+							var sale_details = {
+							order_id:order_id,
+							order_date: order_date,
+							customer_name: customer_name,
+							order_note: order_note,
+							payment_method: payment_method,
+							total_amount: total_amount,
+							paid_amt: paid_amt,
+							balance: balance,
+							unit_id: unit_id,
+							company_id: company_id,
+							user_no: user_no,
+							order_item: order_item
+							
+							}
+
+							var transaction = db.transaction(["sales_order"],"readwrite")
+
+
+							// Ask for object store
+							var store = transaction.objectStore("sales_order");
+
+							// Perform add
+							var request = store.add(sale_details);
+
+							// Success
+							request.onsuccess = function(e) {
+							// alert('sale order saved');
+							//$('.loading').hide();
+									//$('#sales_order_success_modal').modal('show');
+									document.getElementById("save_sales_order").disabled = true;
+									document.getElementById("cancel").disabled = true;
+
+									document.getElementById("customer_name").disabled = true;
+									document.getElementById("order_date").disabled = true;
+									document.getElementById("search_item").disabled = true;
+									document.getElementById("most_used_product").disabled = true;
+
+									$('#close').show();
+									$('#print_button').show();
+									
+
+									$(".remove").prop("disabled", true);
+
+									$(".quantity").prop("disabled", true);
+									$(".payment_method").prop("disabled", true);
+									$(".discount").prop("disabled", true);
+
+									$("input[type=text]").attr('disabled', true);
+									$("textarea").prop('disabled', true);
+									document.getElementById("payment_method").disabled = true;
+									$('#fulfillment_sales_order').hide();
+									$('#most_used_product').hide();
+									$('#show_fullfill_order').hide();
+									$('.hide_part_of_billing_print').hide();
+									$('#hide_fullfill_order').show();
+
+							};
+						
+
+							request.onerror = function(e) {
+							//alert('sales order not saved');
+							console.log("error: "+e);
+							};
+						 
+							var transaction = db.transaction(["order_id_details"],"readwrite")
+
+
+							// Ask for object store
+							var store = transaction.objectStore("order_id_details");
+
+
+							// Define customer
+
+							var order_details = {
+								order_id: order_id,
+								unit_id: unit_id,
+								company_id: company_id
+							}
+
+							// Perform add
+							var request = store.put(order_details);
+
+							// Success
+							request.onsuccess = function(e) {
+							console.log(' order id saved');
+									
+
+							};
+
+							// Success
+							transaction.oncomplete  = function(e) {
+							//console.log(' order id saved');
+									
+							if ($('#print_order').is(":checked"))
+							{
+								PrintDiv(); // it is checked
+							}
+							};
+
+
+							request.onerror = function(e) 
+							{
+
+							console.log('order id not saved');
+							console.log("error: ");
+							};
+
+
+							var today = new Date();
+							var dd = today.getDate();
+							var mm = today.getMonth()+1; //January is 0!
+							var yyyy = today.getFullYear();
+
+							if(dd<10) {
+								dd = '0'+dd
+							} 
+
+							if(mm<10) {
+								mm = '0'+mm
+							} 
+
+							today = dd + '/' + mm + '/' + yyyy;
+							//var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+							//var time = today.getCurrentTime();
+
+
+
+
+
+							var order_details = {
+							order_id: order_id,
+							user_no: user_no,
+							date: today,
+							//time: time,
+							unit_id: unit_id,
+							company_id: company_id,
+							log: 'Sales Order Generated'
+							
+							}
+
+							var transaction = db.transaction(["order_log"],"readwrite")
+
+
+							// Ask for object store
+							var store = transaction.objectStore("order_log");
+
+							// Perform add
+							var request = store.add(order_details);
+
+							// Success
+							request.onsuccess = function(e) {
+							console.log("Log Created");
+							
+							};
+
+
+							request.onerror = function(e) {
+								console.log("Error In Log Creation");
+							};
+
+							
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						}
+		/***************end code for save order ************************/
+	
+	
+
+
+	/************** start function for calculate subtotal amount *******************/
+	function total() {
+		var t = 0;
+		$('.amount').each(function(i, e) {
+			var amt = $(this).val() - 0;
+			t += amt;
+		});
+		t = t.toFixed(2);
+		$(".sub_total").val(t);
+		$(".paid_amount").val(t);
+		//tax_calculate(); 
+		//$('.total').val(t);
+		balance_calculate();
+	}
+	/************** end function for calculate subtotal amount *******************/
+
+	/************** start function for calculate tax *******************/
+	/*function tax_calculate()
+	{
+	var tax_amount= +$('.tax_amount').val();
+	var sub_total_amt= +$(".sub_total").val();
+	var total_amt =  sub_total_amt + tax_amount;
+	$('.total').val(total_amt);
+	balance_calculate(); 
+	}*/
+	/************** end function for calculate tax *******************/
+
+	/************** start function for calculate remaining balance*******************/
+	function balance_calculate() {
+		$('#error_balance_amount').html('');
+		var total_amount = +$('.sub_total').val();
+		var paid_amt = +$(".paid_amount").val();
+		var balance = total_amount - paid_amt;
+		balance = balance.toFixed(2);
+		if (balance < 0) {
+			var x = -balance;
+			var new_amt = paid_amt - x;
+			$('#error_balance_amount').html(
+					'Please refund amount Rs. ' + x.toFixed(2)
+							+ '. Enter "Received Amount" = Rs. '
+							+ new_amt.toFixed(2) + ' to proceed.');
+		}
+		$('.balance').val(balance);
+	}
+	/************** end function for calculate remaining balance*******************/
+	// $(window).load(function() {
+	// 	itemSearch();
+	// });
+	/************** start function for get item name on keyup *******************/
+	
+</script>
+<script
+	src="assets/vendors/moment/min/moment.min.js"></script>
+<script
+	src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap-datetimepicker -->
+<script
+	src="assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script>
+	function setDateZero(date) {
+		return date < 10 ? '0' + date : date;
+	}
+	//var d = new Date('DD-MM-YYYY');
+	var tdate = new Date();
+	var dd = tdate.getDate(); //yields day
+	var MM = tdate.getMonth(); //yields month
+	var yyyy = tdate.getFullYear(); //yields year
+	var currentDate = setDateZero(dd) + "-" + setDateZero(MM + 1) + "-" + yyyy;
+	//var new_date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
+	$('#order_date').datetimepicker({
+		format : 'DD-MM-YYYY',
+		maxDate : new Date()
+	});
+	$('#order_date').val(currentDate);
+</script>
+	<!-- jQuery 
+<script src="<?php echo base_url();?>assets/vendors/jquery/dist/jquery.min.js"></script>-->
+	
+	<script
+		src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	
+<!--	<script
+		src="<?php echo base_url();?>assets/vendors/fastclick/lib/fastclick.js"></script>
+	
+	<script
+		src="<?php echo base_url();?>assets/vendors/nprogress/nprogress.js"></script>
+	
+	<script
+		src="<?php echo base_url();?>assets/vendors/Chart.js/dist/Chart.min.js"></script>
+	
+	<script
+		src="<?php echo base_url();?>assets/vendors/gauge.js/dist/gauge.min.js"></script>
+	
+	<script
+		src="<?php echo base_url();?>assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<!-- iCheck -->
+	<script
+		src="assets/vendors/iCheck/icheck.min.js"></script>
+	
+	<script src="assets/vendors/skycons/skycons.js"></script>
+	
+	<script
+		src="assets/vendors/Flot/jquery.flot.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.pie.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.time.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.stack.js"></script>
+	<script
+		src="assets/vendors/Flot/jquery.flot.resize.js"></script>
+	
+	<script
+		src="assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+	<script
+		src="assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+	<script
+		src="assets/vendors/flot.curvedlines/curvedLines.js"></script>
+
+	<script
+		src="assets/vendors/DateJS/build/date.js"></script>
+
+	<script
+		src="assets/vendors/jqvmap/dist/jquery.vmap.js"></script>
+	<script
+		src="assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+	<script
+		src="assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+
+	<script
+		src="assets/vendors/moment/min/moment.min.js"></script>
+	<script
+		src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+
+	<!-- <script
+		src="assets/vendors/parsleyjs/dist/parsley.min.js"></script> -->
+
+
+
+	<script src="assets/build/js/custom.min.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
